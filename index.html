@@ -1,107 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Foodgoose</title>
 <style>
-*{box-sizing:border-box}html,body{margin:0;height:100%;background:#fff;color:#111;font-family:-apple-system,BlinkMacSystemFont,sans-serif}
-#app{max-width:430px;min-height:100dvh;margin:0 auto;position:relative;overflow:hidden}
-.welcome{min-height:100dvh;background:linear-gradient(180deg,#4db4ff 0%,#5ee07a 38%,#ffe98a 72%,#fff 92%);position:relative}
+*{box-sizing:border-box}
+html,body{margin:0;background:#fff;color:#111;font-family:-apple-system,BlinkMacSystemFont,sans-serif}
+.phone{max-width:430px;min-height:100dvh;margin:0 auto;position:relative}
+.view{display:none;min-height:100dvh}
+.view.on{display:block}
+.welcome{background:linear-gradient(180deg,#4db4ff 0%,#5ee07a 38%,#ffe98a 72%,#fff 92%);position:relative;overflow:hidden}
 .food{position:absolute;line-height:1;filter:drop-shadow(0 8px 12px rgba(0,0,0,.12))}
-.hero{position:absolute;left:24px;right:24px;top:38%;text-align:center;font-size:40px;line-height:1.12;font-weight:800;letter-spacing:-.6px}
-.ai{display:inline-flex;margin-left:6px;padding:6px 14px;border-radius:999px;background:#111;color:#fff;font-size:22px;vertical-align:middle;box-shadow:0 0 0 3px #111,0 0 0 5px #6CFF4A,0 0 0 7px #5B8CFF,0 0 0 9px #FF7AD9}
-.dock{position:absolute;left:18px;right:18px;bottom:28px;display:flex;align-items:center}
-.lang{color:#8b8b8b;font-weight:700;font-size:14px;margin-right:8px}
-.cta{flex:1;max-width:230px;margin:0 auto;background:#1c1c1e;color:#fff;border:0;border-radius:999px;padding:18px 28px;font-size:18px;font-weight:700}
-.screen{min-height:100dvh;padding:14px 20px 110px;display:flex;flex-direction:column;background:#fff}
+.hero{position:absolute;left:24px;right:24px;top:36%;text-align:center;font-size:40px;line-height:1.12;font-weight:800;letter-spacing:-.6px}
+.ai{display:inline-block;margin-left:6px;padding:4px 12px;border-radius:999px;background:#111;color:#fff;font-size:22px;vertical-align:middle;box-shadow:0 0 0 3px #111,0 0 0 5px #6CFF4A,0 0 0 7px #5B8CFF,0 0 0 9px #FF7AD9}
+.dock{position:absolute;left:18px;right:18px;bottom:28px;display:flex;align-items:center;gap:10px}
+.lang{color:#8b8b8b;font-weight:700}
+.cta{margin:0 auto;background:#1c1c1e;color:#fff;border:0;border-radius:999px;padding:18px 36px;font-size:18px;font-weight:700}
+.screen{padding:14px 20px 110px;background:#fff}
 .top{display:flex;align-items:center;gap:12px;margin:6px 0 22px}
 .back{width:44px;height:44px;border:0;border-radius:22px;background:#f2f2f2;font-size:22px}
 .track{flex:1;height:5px;background:#ececec;border-radius:99px;overflow:hidden}
-.bar{height:100%;background:#111;border-radius:99px}
-.skip{margin-left:auto;border:0;background:none;color:#b0b0b0;font-weight:600}
+.bar{height:100%;background:#111;width:12%}
 h1{font-size:32px;line-height:1.15;font-weight:800;margin:0 0 10px;letter-spacing:-.5px}
 .sub{color:#a3a3a3;font-size:16px;margin:0 0 18px}
 .list{display:flex;flex-direction:column;gap:10px}
 .opt{display:flex;align-items:center;gap:14px;min-height:64px;padding:14px 16px;border:0;border-radius:22px;background:#f3f3f3;text-align:left;font-size:17px;font-weight:600;width:100%}
-.ic{width:28px;text-align:center;font-size:22px}
-.ck{margin-left:auto;width:22px;height:22px;border-radius:11px;background:#111;color:#fff;font-size:13px;display:none;align-items:center;justify-content:center}
-.opt.on{background:#8dff62}.opt.on .ck{display:flex}
-.tip{position:absolute;left:16px;right:16px;bottom:108px;background:#fff;border-radius:22px;padding:14px 16px;box-shadow:0 10px 30px rgba(0,0,0,.08);font-size:15px;font-weight:600}
-.next{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);width:74px;height:74px;border:0;border-radius:37px;background:#f2f2f2;color:#c8c8c8;font-size:34px}
-.next.go{background:#1c1c1e;color:#fff}
-.proof{min-height:100dvh;background:linear-gradient(180deg,#6CED69 0%,#b8f56a 55%,#fff 100%);padding:14px 18px 110px}
-.ptitle{font-size:32px;font-weight:800;margin:8px 0 18px}
+.opt.on{background:#8dff62}
+.opt .ck{margin-left:auto;width:22px;height:22px;border-radius:11px;background:#111;color:#fff;font-size:13px;display:none;align-items:center;justify-content:center}
+.opt.on .ck{display:flex}
+.tip{position:absolute;left:16px;right:16px;bottom:108px;background:#fff;border-radius:22px;padding:14px 16px;box-shadow:0 10px 30px rgba(0,0,0,.08);font-weight:600}
+.next{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);width:74px;height:74px;border:0;border-radius:37px;background:#1c1c1e;color:#fff;font-size:34px}
+.proof{background:linear-gradient(180deg,#6CED69 0%,#b8f56a 55%,#fff 100%);padding:14px 18px 110px}
 .pcard{background:#fff;border-radius:28px;padding:16px}
-.goal{color:#9aa09a;font-weight:600;margin:0 0 6px}
-.plot{position:relative;height:250px}
-.chart{width:100%;height:200px;display:block;margin-top:24px}
-.lbl{position:absolute;font-size:13px;font-weight:700}
-.pill{position:absolute;z-index:2;border-radius:16px;padding:6px 12px;font-size:13px;font-weight:700}
-.pg{background:#d8f8b8;color:#1f8a2e}.po{background:#ffe3c8;color:#e86a2d}
-.pfoot{border-top:1px solid #eee;margin-top:8px;padding-top:12px;display:flex;gap:10px;align-items:center}
-.info{align-items:center;text-align:center}
-.field{background:#f3f3f3;border:0;border-radius:18px;padding:16px;font-size:17px;width:100%;margin:0 0 10px}
-.label{color:#8b8b8b;font-weight:600;margin:8px 0 6px;font-size:14px;text-align:left;width:100%}
-.plan{font-size:34px;font-weight:800;margin:8px 0}
-.card{background:#f3f3f3;border-radius:22px;padding:16px;width:100%;text-align:left}
-.macros{display:flex;justify-content:space-around;padding:8px 0;font-weight:800}
-.pace{display:flex;gap:8px;width:100%}
-.pace button{flex:1;padding:14px;border:0;border-radius:16px;background:#f3f3f3;font-weight:700}
-.pace button.on{background:#8dff62}
-.pillbtn{background:#1c1c1e;color:#fff;border:0;border-radius:999px;padding:18px 28px;font-size:17px;font-weight:700;margin-top:auto;width:100%}
-.header{display:flex;justify-content:space-between;align-items:center}
-.left{font-size:48px;font-weight:800;text-align:center}
-.ring{width:168px;height:168px;border:12px solid #8dff62;border-radius:84px;margin:8px auto;display:flex;align-items:center;justify-content:center;color:#8b8b8b}
-.meal{display:flex;align-items:center;gap:12px;background:#f3f3f3;border-radius:18px;padding:12px;margin:8px 0}
-.homeDock{display:flex;gap:10px;margin-top:auto}
-.homeDock button{flex:1;border:0;background:#f3f3f3;padding:16px;border-radius:18px;font-weight:700}
-.close{align-self:flex-end;width:36px;height:36px;border:0;border-radius:18px;background:#f2f2f2}
-.tag{display:inline-block;background:#111;color:#fff;border-radius:99px;padding:5px 10px;font-size:11px;font-weight:800}
-</style></head><body><div id="app"></div>
+.muted{color:#9aa09a;font-weight:600}
+.pills{position:relative;height:210px}
+svg.chart{width:100%;height:200px}
+.pill{position:absolute;border-radius:16px;padding:6px 12px;font-size:13px;font-weight:700}
+.pg{right:10px;top:8px;background:#d8f8b8;color:#1f8a2e}
+.po{left:42%;bottom:40px;background:#ffe3c8;color:#e86a2d}
+.pfoot{border-top:1px solid #eee;margin-top:8px;padding-top:12px;font-size:15px}
+.info{text-align:center;padding-top:24px}
+.pillbtn{background:#1c1c1e;color:#fff;border:0;border-radius:999px;padding:18px 28px;font-size:17px;font-weight:700;width:calc(100% - 40px);position:absolute;left:20px;bottom:28px}
+.goose{font-size:84px;margin:20px 0}
+.home .kcal{font-size:48px;font-weight:800;text-align:center}
+.ring{width:150px;height:150px;border:12px solid #8dff62;border-radius:75px;margin:12px auto;display:flex;align-items:center;justify-content:center;color:#8b8b8b}
+.meal{background:#f3f3f3;border-radius:18px;padding:14px;margin:8px 0;display:flex;justify-content:space-between;font-weight:600}
+.skip{margin-left:auto;border:0;background:none;color:#b0b0b0;font-weight:600}
+</style>
+</head>
+<body>
+<div class="phone">
+<div class="view on welcome" id="welcome">
+  <div class="food" style="left:18px;top:6%;font-size:42px">avocado</div>
+  <div class="food" style="right:16%;top:8%;font-size:48px">taco</div>
+  <div class="hero">Track food<br>and calories<br>with <span class="ai">AI</span></div>
+  <div class="dock">
+    <div class="lang">EN</div>
+    <button class="cta" type="button" onclick="show('goal')">Get Started</button>
+  </div>
+</div>
+<div class="view screen" id="goal">
+  <div class="top"><button class="back" type="button" onclick="show('welcome')"><</button><div class="track"><div class="bar" style="width:10%"></div></div></div>
+  <h1>What's your goal?</h1>
+  <div class="list">
+    <button class="opt" type="button" onclick="pick(this)">Lose weight<span class="ck">+</span></button>
+    <button class="opt" type="button" onclick="pick(this)">Maintain<span class="ck">+</span></button>
+    <button class="opt" type="button" onclick="pick(this)">Gain weight<span class="ck">+</span></button>
+  </div>
+  <div class="tip">This is essential for creating your custom plan</div>
+  <button class="next" type="button" onclick="show('sex')">></button>
+</div>
+<div class="view screen" id="sex">
+  <div class="top"><button class="back" type="button" onclick="show('goal')"><</button><div class="track"><div class="bar" style="width:18%"></div></div></div>
+  <h1>Choose your sex</h1>
+  <p class="sub">Your personal information won't be collected or shared</p>
+  <div class="list">
+    <button class="opt" type="button" onclick="pick(this)">Male<span class="ck">+</span></button>
+    <button class="opt" type="button" onclick="pick(this)">Female<span class="ck">+</span></button>
+    <button class="opt" type="button" onclick="pick(this)">Other<span class="ck">+</span></button>
+  </div>
+  <button class="next" type="button" onclick="show('proof')">></button>
+</div>
+<div class="view proof" id="proof">
+  <div class="top"><button class="back" type="button" onclick="show('sex')"><</button><div class="track"><div class="bar" style="width:28%"></div></div></div>
+  <h1>Foodgoose delivers long-term results</h1>
+  <div class="pcard">
+    <div class="muted">Lose weight</div>
+    <div class="pills">
+      <div class="pill pg">Using Foodgoose</div>
+      <div class="pill po">Using other methods</div>
+      <svg class="chart" viewBox="0 0 360 210">
+        <path d="M 36 48 C 100 52 150 44 200 56 C 250 50 290 62 318 68" fill="none" stroke="#FF7A45" stroke-width="3.5" stroke-dasharray="7 8" stroke-linecap="round"/>
+        <path d="M 36 48 C 120 48 160 70 200 118 C 236 160 280 172 318 176" fill="none" stroke="#34C759" stroke-width="5.5" stroke-linecap="round"/>
+        <circle cx="36" cy="48" r="8" fill="#fff" stroke="#111" stroke-width="5"/>
+        <circle cx="318" cy="68" r="6.5" fill="#FF7A45"/>
+        <circle cx="318" cy="176" r="8" fill="#34C759"/>
+      </svg>
+    </div>
+    <div class="pfoot"><b>81%</b> of Foodgoose users maintain their desired weight even after 6 months</div>
+  </div>
+  <button class="next" type="button" onclick="show('diet')">></button>
+</div>
+<div class="view screen" id="diet">
+  <div class="top"><button class="back" type="button" onclick="show('proof')"><</button><div class="track"><div class="bar" style="width:36%"></div></div></div>
+  <h1>What diet do you usually stick to?</h1>
+  <div class="list">
+    <button class="opt" type="button" onclick="pick(this)">Balanced<span class="ck">+</span></button>
+    <button class="opt" type="button" onclick="pick(this)">Vegetarian<span class="ck">+</span></button>
+    <button class="opt" type="button" onclick="pick(this)">Vegan<span class="ck">+</span></button>
+    <button class="opt" type="button" onclick="pick(this)">Pescatarian<span class="ck">+</span></button>
+    <button class="opt" type="button" onclick="pick(this)">Keto<span class="ck">+</span></button>
+    <button class="opt" type="button" onclick="pick(this)">Paleo<span class="ck">+</span></button>
+    <button class="opt" type="button" onclick="pick(this)">Low carb<span class="ck">+</span></button>
+    <button class="opt" type="button" onclick="pick(this)">High protein<span class="ck">+</span></button>
+  </div>
+  <button class="next" type="button" onclick="show('acc')">></button>
+</div>
+<div class="view screen" id="acc">
+  <div class="top"><button class="back" type="button" onclick="show('diet')"><</button><div class="track"><div class="bar" style="width:46%"></div></div></div>
+  <h1>What do you want to accomplish?</h1>
+  <p class="sub">Select as many as you'd like</p>
+  <div class="list">
+    <button class="opt" type="button" onclick="this.classList.toggle('on')">Eat healthier<span class="ck">+</span></button>
+    <button class="opt" type="button" onclick="this.classList.toggle('on')">Eat more mindfully<span class="ck">+</span></button>
+    <button class="opt" type="button" onclick="this.classList.toggle('on')">Feel better about myself<span class="ck">+</span></button>
+    <button class="opt" type="button" onclick="this.classList.toggle('on')">Sleep better naturally<span class="ck">+</span></button>
+    <button class="opt" type="button" onclick="this.classList.toggle('on')">Boost daily energy<span class="ck">+</span></button>
+  </div>
+  <button class="next" type="button" onclick="show('remind')">></button>
+</div>
+<div class="view screen info" id="remind">
+  <div class="top"><button class="back" type="button" onclick="show('acc')"><</button><div class="track"><div class="bar" style="width:54%"></div></div><button class="skip" type="button" onclick="show('home')">Skip</button></div>
+  <div class="goose">Goose</div>
+  <h1>Don't forget to track what you eat</h1>
+  <p class="sub">You're 3.6x more likely to achieve your goal if you're consistent!</p>
+  <button class="pillbtn" type="button" onclick="show('home')">Remind me, I'm in!</button>
+</div>
+<div class="view screen home" id="home">
+  <div class="top"><b style="font-size:20px">Foodgoose</b></div>
+  <div class="kcal">1840<span style="font-size:16px;color:#8b8b8b"> kcal left</span></div>
+  <div class="ring">12% of daily goal</div>
+  <div class="meal"><span>Eggs and avocado toast</span><span>420</span></div>
+  <div class="meal"><span>Chicken salad</span><span>385</span></div>
+  <button class="pillbtn" type="button" onclick="show('welcome')">Restart demo</button>
+</div>
+</div>
 <script>
-const foods=[{name:'Eggs and avocado toast',kcal:420,protein:22,carbs:18,fat:24,emoji:'E'},{name:'Chicken salad',kcal:385,protein:31,carbs:12,fat:14,emoji:'S'},{name:'Greek yogurt',kcal:130,protein:12,carbs:6,fat:6,emoji:'Y'},{name:'White rice',kcal:195,protein:4,carbs:42,fat:0,emoji:'R'},{name:'Avocado',kcal:160,protein:2,carbs:9,fat:15,emoji:'A'}];
-const diets=[['Balanced','B'],['Vegetarian','V'],['Vegan','G'],['Pescatarian','P'],['Keto','K'],['Paleo','M'],['Low carb','L'],['High protein','H']];
-const acts={none:1.2,light:1.375,medium:1.55,high:1.725};
-const acc=['Eat healthier','Eat more mindfully','Feel better about myself','Prevent stress overeating','Boost daily energy','Sleep better naturally','Strengthen immune system','Improve gut health','Support hormone balance'];
-const bars=['Low motivation','Unhealthy habits','Hard to stay consistent','Lack of support','Busy schedule','Self-discipline'];
-const s={screen:'welcome',goal:'',sex:'',experience:'',diet:'',activity:'',height:'178',weight:'83',age:'32',target:'78',pace:0.4,accomplishments:[],barriers:[],hideCalories:false,annualPlan:true,description:'',query:'',meals:foods.slice(0,2)};
-function plan(){const w=+s.weight||83,h=+s.height||178,a=+s.age||32;const base=10*w+6.25*h-5*a;const bmr=s.sex==='female'?base-161:s.sex==='other'?base-78:base+5;const tdee=bmr*(acts[s.activity]||1.55);const adj=s.goal==='lose'?s.pace*7700/7:s.goal==='gain'?-s.pace*7700/7:0;const min=s.sex==='female'?1200:1500;const kcal=Math.round(Math.max(min,Math.min(4000,tdee-adj)));let split=[0.25,0.45,0.30];if(s.diet==='Keto'||s.diet==='Low carb')split=[0.25,0.10,0.65];if(s.diet==='High protein')split=[0.35,0.35,0.30];if(s.diet==='Vegan'||s.diet==='Vegetarian')split=[0.20,0.55,0.25];return{kcal:kcal,bmr:Math.round(bmr),tdee:Math.round(tdee),protein:Math.round(kcal*split[0]/4),carbs:Math.round(kcal*split[1]/4),fat:Math.round(kcal*split[2]/9)};}
-function go(n){s.screen=n;draw();}
-function nxt(ok,to){return '<button class="next '+(ok?'go':'')+'" '+(ok?'onclick="go(\''+to+'\')"':'disabled')+'>\u203A</button>';}
-function top(back,pct,skip){return '<div class="top">'+(back?'<button class="back" onclick="go(\''+back+'\')">\u2039</button>':'<div class="back" style="visibility:hidden"></div>')+'<div class="track"><div class="bar" style="width:'+pct+'%"></div></div>'+(skip?'<button class="skip" onclick="go(\''+skip+'\')">Skip</button>':'')+'</div>';}
-function row(on,fn,icon,label){return '<button class="opt '+(on?'on':'')+'" onclick="'+fn+'"><span class="ic">'+icon+'</span>'+label+'<span class="ck">\u2713</span></button>';}
-function toggle(k,item){s[k]=s[k].indexOf(item)>=0?s[k].filter(function(x){return x!==item;}):s[k].concat([item]);draw();}
-function chart(gain){var green=gain?'M 36 168 C 110 168 150 150 198 96 C 236 52 280 40 318 38':'M 36 48 C 120 48 160 70 200 118 C 236 160 280 172 318 176';var orange=gain?'M 36 168 C 90 150 140 142 188 128 C 240 148 290 128 318 148':'M 36 48 C 100 52 150 44 200 56 C 250 50 290 62 318 68';var gd=gain?[318,38]:[318,176],od=gain?[318,148]:[318,68],st=gain?[36,168]:[36,48];return '<div class="goal">'+(gain?'Gain weight':'Lose weight')+'</div><div class="plot"><div class="pill pg" style="'+(gain?'right:10px;top:8px':'left:8px;bottom:30px')+'">Using Foodgoose</div><div class="pill po" style="'+(gain?'left:42%;bottom:52px':'right:8px;top:0')+'">Using other methods</div><svg class="chart" viewBox="0 0 360 210"><path d="'+orange+'" fill="none" stroke="#FF7A45" stroke-width="3.5" stroke-dasharray="7 8" stroke-linecap="round"/><path d="'+green+'" fill="none" stroke="#34C759" stroke-width="5.5" stroke-linecap="round"/><circle cx="'+st[0]+'" cy="'+st[1]+'" r="8" fill="#fff" stroke="#111" stroke-width="5"/><circle cx="'+od[0]+'" cy="'+od[1]+'" r="6.5" fill="#FF7A45"/><circle cx="'+gd[0]+'" cy="'+gd[1]+'" r="8" fill="#34C759"/></svg><div class="lbl" style="'+(gain?'left:40px;bottom:48px':'left:40px;top:78px')+'">Weight<br>now</div><div class="lbl" style="'+(gain?'right:8px;top:42px':'right:6px;bottom:4px')+'">Weight<br>soon</div></div>';}
-function draw(){var app=document.getElementById('app');var p=plan();var w=+s.weight||83,t=+s.target||78,diff=Math.abs(t-w).toFixed(1);var html='';
-if(s.screen==='welcome'){html='<div class="welcome"><div class="food" style="left:18px;top:6%;font-size:42px">AV</div><div class="food" style="right:16%;top:9%;font-size:48px">TA</div><div class="food" style="left:8%;top:22%;font-size:42px">TO</div><div class="food" style="right:6%;top:24%;font-size:52px">LE</div><div class="hero">Track food<br>& calories<br>with <span class="ai">AI *</span></div><div class="dock"><div class="lang">EN</div><button class="cta" onclick="go(\'goal\')">Get Started</button></div></div>';}
-else if(s.screen==='goal'){html='<div class="screen">'+top('welcome',8)+'<h1>What\'s your goal?</h1><div class="list">'+row(s.goal==='lose',"s.goal='lose';draw()",'v','Lose weight')+row(s.goal==='maintain',"s.goal='maintain';draw()",'=','Maintain')+row(s.goal==='gain',"s.goal='gain';draw()",'^','Gain weight')+'</div><div class="tip">This is essential for creating your custom plan</div>'+nxt(!!s.goal,'sex')+'</div>';}
-else if(s.screen==='sex'){html='<div class="screen">'+top('goal',16)+'<h1>Choose your sex</h1><p class="sub">Your personal information won\'t be collected or shared</p><div class="list">'+row(s.sex==='male',"s.sex='male';draw()",'M','Male')+row(s.sex==='female',"s.sex='female';draw()",'F','Female')+row(s.sex==='other',"s.sex='other';draw()",'O','Other')+'</div>'+nxt(!!s.sex,'experience')+'</div>';}
-else if(s.screen==='experience'){html='<div class="screen">'+top('sex',22)+'<h1>Have you tried other food or calorie tracking apps?</h1><div class="list">'+row(s.experience==='new',"s.experience='new';draw()",'1','I am new to this')+row(s.experience==='past',"s.experience='past';draw()",'2','I have tried it in the past')+row(s.experience==='always',"s.experience='always';draw()",'3','I always track it')+'</div>'+nxt(!!s.experience,'proof')+'</div>';}
-else if(s.screen==='proof'){html='<div class="proof">'+top('experience',28)+'<div class="ptitle">Foodgoose delivers long-term results</div><div class="pcard">'+chart(s.goal==='gain')+'<div class="pfoot"><div><b>81%</b> of Foodgoose users maintain their desired weight even after 6 months</div></div></div>'+nxt(true,'diet')+'</div>';}
-else if(s.screen==='diet'){html='<div class="screen">'+top('proof',34)+'<h1>What diet do you usually stick to?</h1><div class="list">'+diets.map(function(d){return row(s.diet===d[0],"s.diet='"+d[0]+"';draw()",d[1],d[0]);}).join('')+'</div>'+nxt(!!s.diet,'accomplishments')+'</div>';}
-else if(s.screen==='accomplishments'){html='<div class="screen">'+top('diet',40)+'<h1>What do you want to accomplish?</h1><p class="sub">Select as many as you like</p><div class="list">'+acc.map(function(d){return row(s.accomplishments.indexOf(d)>=0,"toggle('accomplishments','"+d+"')",'*',d);}).join('')+'</div>'+nxt(true,'remind')+'</div>';}
-else if(s.screen==='remind'){html='<div class="screen info">'+top('accomplishments',46,'activity')+'<h1>Don\'t forget to track what you eat</h1><p class="sub">You are 3.6x more likely to achieve your goal if you are consistent!</p><button class="pillbtn" onclick="go(\'activity\')">Remind me, I\'m in!</button></div>';}
-else if(s.screen==='activity'){html='<div class="screen">'+top('remind',52)+'<h1>How active are you?</h1><div class="list">'+row(s.activity==='none',"s.activity='none';draw()",'1','Mostly sedentary lifestyle')+row(s.activity==='light',"s.activity='light';draw()",'2','Occasional workouts or long walks')+row(s.activity==='medium',"s.activity='medium';draw()",'3','Several workouts per week')+row(s.activity==='high',"s.activity='high';draw()",'4','Constantly working out')+'</div>'+nxt(!!s.activity,'body')+'</div>';}
-else if(s.screen==='body'){html='<div class="screen">'+top('activity',58)+'<h1>Adjust all to create your custom plan.</h1><p class="sub">Your personal information won\'t be collected or shared</p><div class="label">Height (cm)</div><input class="field" value="'+s.height+'" oninput="s.height=this.value"><div class="label">Current weight (kg)</div><input class="field" value="'+s.weight+'" oninput="s.weight=this.value"><div class="label">Age</div><input class="field" value="'+s.age+'" oninput="s.age=this.value">'+nxt(true,'target')+'</div>';}
-else if(s.screen==='target'){html='<div class="screen info">'+top('body',64)+'<h1>What\'s your target weight?</h1><div class="label">Target weight (kg)</div><input class="field" value="'+s.target+'" oninput="s.target=this.value">'+nxt(true,'realistic')+'</div>';}
-else if(s.screen==='realistic'){html='<div class="screen info">'+top('target',70)+'<h1>'+(s.goal==='gain'?'Gaining':s.goal==='lose'?'Losing':'Maintaining')+' '+diff+' kg is a realistic goal!</h1><p class="sub">People say it is easier to build a lasting habit with Foodgoose.</p>'+nxt(true,'pace')+'</div>';}
-else if(s.screen==='pace'){html='<div class="screen">'+top('realistic',76)+'<h1>How soon do you want to reach your goal?</h1><div class="plan">'+(s.goal==='gain'?'+':s.goal==='maintain'?'':'-')+s.pace.toFixed(1)+' kg / week</div><div class="card">You will reach your goal in '+Math.max(1,Math.round(Math.abs(t-w)/s.pace/4.345*10)/10)+' months<br><b>Daily calorie goal: '+p.kcal.toLocaleString()+'</b></div><div class="pace" style="margin-top:14px">'+[0.2,0.4,0.6,0.8].map(function(v){return '<button class="'+(s.pace===v?'on':'')+'" onclick="s.pace='+v+';draw()">'+v+'</button>';}).join('')+'</div>'+nxt(true,'barriers')+'</div>';}
-else if(s.screen==='barriers'){html='<div class="screen">'+top('pace',82)+'<h1>What usually stops you from reaching goals?</h1><p class="sub">Select none or as many as you like</p><div class="list">'+bars.map(function(d){return row(s.barriers.indexOf(d)>=0,"toggle('barriers','"+d+"')",'*',d);}).join('')+'</div>'+nxt(true,'results')+'</div>';}
-else if(s.screen==='results'){html='<div class="screen info">'+top('barriers',86)+'<h1>Get 93% better results with Foodgoose VS without.</h1><p class="sub">Foodgoose makes food tracking fun and holds you accountable.</p>'+nxt(true,'timeline')+'</div>';}
-else if(s.screen==='timeline'){html='<div class="screen info">'+top('results',90)+'<div class="card" style="text-align:center">Today --- 7 days ----- 30 days<br><b>reset</b>    <b>visible change</b></div><h1>When should you expect to see results?</h1><p class="sub">Weight change may be delayed at first, but after 7 days you will start seeing change.</p>'+nxt(true,'awards')+'</div>';}
-else if(s.screen==='awards'){html='<div class="screen info">'+top('timeline',94)+'<h1>Cultural impact of the apps we create.</h1><p class="sub">6 Million+ users · 350,000+ five-star ratings</p>'+nxt(true,'launch')+'</div>';}
-else if(s.screen==='launch'){html='<div class="screen info">'+top('awards',100)+'<h1>Your custom plan is one tap away!</h1><p class="sub">All systems go.</p><button class="pillbtn" onclick="go(\'loading\')">Get my personal plan</button></div>';}
-else if(s.screen==='loading'){html='<div class="screen info"><h1>Setting up your personal plan...</h1><p class="sub">Analyzing your data<br>Personalizing goals<br>Feeding geese</p><button class="pillbtn" onclick="go(\'plan\')">See my plan</button></div>';}
-else if(s.screen==='plan'){html='<div class="screen"><div class="tag">YOUR PERSONAL PLAN</div><h1>You will '+(s.goal||'lose')+' '+diff+' kg</h1><div class="card"><div class="plan">'+(s.hideCalories?'Balanced':p.kcal.toLocaleString()+' kcal')+'</div><div class="macros"><span>'+p.protein+'g P</span><span>'+p.carbs+'g C</span><span>'+p.fat+'g F</span></div></div><button class="pillbtn" onclick="go(\'scan\')">Continue</button></div>';}
-else if(s.screen==='scan'){html='<div class="screen info"><h1>You can try Foodgoose absolutely FREE.</h1><p class="sub">No payment due now.</p><button class="pillbtn" onclick="go(\'trialReminder\')">Try for 0,00 EUR</button></div>';}
-else if(s.screen==='trialReminder'){html='<div class="screen info"><h1>We will remind you before your free trial ends.</h1><button class="pillbtn" onclick="go(\'paywall\')">Continue for FREE</button></div>';}
-else if(s.screen==='paywall'){html='<div class="screen"><button class="close" onclick="go(\'downsell\')">x</button><h1>How free trial works</h1><div class="card">Today · Full AI access.<br>In 2 days · Reminder<br>In 3 days · Subscription starts.</div>'+row(s.annualPlan,"s.annualPlan=true;draw()",'Y','0,00 EUR now then 34,99 EUR/year')+row(!s.annualPlan,"s.annualPlan=false;draw()",'M','9,99 EUR / month')+'<button class="pillbtn" onclick="go(\'home\')">Start my 3-day free trial</button></div>';}
-else if(s.screen==='downsell'){html='<div class="screen"><button class="close" onclick="go(\'home\')">x</button><div class="tag">EXPIRES IF YOU LEAVE</div><h1>67% OFF FOREVER</h1><div class="card"><div class="plan">1,91 EUR / month</div><b>22,99 EUR / year</b></div><button class="pillbtn" onclick="go(\'home\')">Get special offer -67%</button></div>';}
-else if(s.screen==='describe'){html='<div class="screen">'+top('home',0)+'<h1>What did you eat?</h1><textarea class="field" style="min-height:120px" oninput="s.description=this.value">'+s.description+'</textarea><button class="pillbtn" onclick="s.meals=[foods[0]].concat(s.meals);go(\'home\')">+ Add meal</button></div>';}
-else if(s.screen==='search'){var r=foods.filter(function(f){return f.name.toLowerCase().indexOf((s.query||'').toLowerCase())>=0;});html='<div class="screen">'+top('home',0)+'<h1>Food database</h1><input class="field" value="'+s.query+'" oninput="s.query=this.value;draw()">'+r.map(function(x,i){return '<div class="meal"><b>'+x.name+'</b> '+x.kcal+'</div>';}).join('')+'</div>';}
-else if(s.screen==='profile'){html='<div class="screen info">'+top('home',0)+'<h1>Your profile</h1><div class="card"><b>'+s.weight+' kg now · Goal '+s.target+' kg</b><br>'+p.kcal+' daily calorie goal<br>Diet · '+(s.diet||'Balanced')+'</div></div>';}
-else {var eaten=s.meals.reduce(function(n,x){return n+x.kcal;},0);html='<div class="screen"><div class="header"><b>Foodgoose</b><button style="border:0;background:none" onclick="go(\'profile\')">Profile</button></div><div class="left">'+Math.max(0,p.kcal-eaten)+'<span style="font-size:15px;color:#8b8b8b"> kcal left</span></div><div class="ring">'+(p.kcal?Math.round(eaten/p.kcal*100):0)+'% of daily goal</div>'+s.meals.map(function(x){return '<div class="meal"><b>'+x.name+'</b> '+x.kcal+'</div>';}).join('')+'<div class="homeDock"><button onclick="go(\'describe\')">Describe</button><button onclick="go(\'search\')">Search</button></div></div>';}
-app.innerHTML=html;}
-draw();
-</script></body></html>
+function show(id){
+  var views=document.querySelectorAll('.view');
+  for(var i=0;i<views.length;i++){views[i].classList.remove('on');}
+  document.getElementById(id).classList.add('on');
+  window.scrollTo(0,0);
+}
+function pick(el){
+  var list=el.parentNode.querySelectorAll('.opt');
+  for(var i=0;i<list.length;i++){list[i].classList.remove('on');}
+  el.classList.add('on');
+}
+</script>
+</body>
+</html>
