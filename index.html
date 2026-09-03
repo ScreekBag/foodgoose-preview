@@ -24,11 +24,11 @@ button{appearance:none;-webkit-appearance:none;font-family:inherit;color:#111;cu
 .back{width:44px;height:44px;border:0;border-radius:22px;background:#f2f2f2;font-size:22px;color:#111;flex:none}
 .track{flex:1;height:4px;background:#ececec;border-radius:99px;overflow:hidden}
 .bar{height:100%;background:#111}
-h1{font-size:32px;line-height:1.15;font-weight:800;margin:0 0 16px;letter-spacing:-.5px;color:#111}
-.sub{color:#b0b0b0;font-size:16px;line-height:1.35;margin:0 0 22px;font-weight:500}
+h1{font-size:32px;line-height:1.15;font-weight:800;margin:0 0 10px;letter-spacing:-.5px;color:#111}
+.sub{color:#b0b0b0;font-size:16px;line-height:1.35;margin:0 0 18px;font-weight:500}
 .list{display:flex;flex-direction:column;gap:10px}
 .opt{display:flex;align-items:center;gap:14px;min-height:62px;padding:12px 16px;border:0;border-radius:22px;background:#f4f4f4;text-align:left;font-size:17px;font-weight:600;width:100%;color:#111}
-.opt .ic{width:40px;height:28px;flex:none;position:relative;display:flex;align-items:center;justify-content:flex-start}
+.opt .ic{width:40px;height:28px;flex:none;position:relative;display:flex;align-items:center}
 .opt .ic i{font-style:normal;font-size:20px;line-height:1;position:absolute}
 .opt .ic i:first-child{left:0;top:0}
 .opt .ic i:last-child:not(:first-child){left:14px;top:8px;font-size:16px}
@@ -37,29 +37,26 @@ h1{font-size:32px;line-height:1.15;font-weight:800;margin:0 0 16px;letter-spacin
 .ck{margin-left:auto;width:24px;height:24px;border-radius:12px;background:#111;color:#fff;font-size:13px;display:none;align-items:center;justify-content:center;flex:none}
 .opt.on .ck{display:flex}
 .tip{position:absolute;left:16px;right:16px;bottom:118px;background:#fff;border-radius:24px;padding:16px 18px;box-shadow:0 10px 28px rgba(0,0,0,.08);font-weight:600;font-size:16px}
-.next{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);width:74px;height:74px;border:0;border-radius:37px;background:#f2f2f2;color:#c8c8c8;font-size:32px;z-index:8;box-shadow:0 10px 24px rgba(0,0,0,.08)}
+.next{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);width:74px;height:74px;border:0;border-radius:37px;background:#f2f2f2;color:#c8c8c8;font-size:32px;z-index:8}
 .next.go,.next.ready{background:#1c1c1e;color:#fff}
 .proof{background:linear-gradient(180deg,#7AF06A 0%,#B6F56A 42%,#F6FFB0 72%,#fff 92%);padding:14px 18px 130px}
 .proof .back{background:#fff}
 .pcard{background:#fff;border-radius:28px;padding:18px 16px 16px}
 .glabel{color:#b0b0b0;font-weight:700;font-size:15px;margin:0 0 8px}
-.chart{display:none;position:relative;height:250px;margin:0 2px 8px}
+.chart{display:none;position:relative;height:250px}
 .pcard.gain .chart.gain,.pcard.lose .chart.lose,.pcard.keep .chart.keep{display:block}
 .chart svg{width:100%;height:250px;display:block}
-.lbl{position:absolute;font-size:13px;font-weight:800;line-height:1.15;color:#111;z-index:2}
-.gain .lbl.now{left:44px;top:62%}
-.gain .lbl.soon{right:10px;top:6px;text-align:right}
-.lose .lbl.now{left:44px;top:18px}
-.lose .lbl.soon{right:10px;bottom:8px;text-align:right}
-.keep .lbl.now{left:44px;top:42%}
-.keep .lbl.soon{right:10px;top:28%}
+.lbl{position:absolute;font-size:13px;font-weight:800;line-height:1.15;z-index:2}
+.gain .lbl.now{left:44px;top:62%}.gain .lbl.soon{right:10px;top:6px;text-align:right}
+.lose .lbl.now{left:44px;top:18px}.lose .lbl.soon{right:10px;bottom:8px;text-align:right}
+.keep .lbl.now{left:44px;top:42%}.keep .lbl.soon{right:10px;top:28%}
 .pillg,.pillo{position:absolute;border-radius:16px;padding:7px 12px;font-size:13px;font-weight:800;z-index:3;white-space:nowrap}
 .gain .pillg{right:8px;top:42px;background:#d8f8b8;color:#1f8a2e}
 .lose .pillg{left:18px;bottom:18px;background:#d8f8b8;color:#1f8a2e}
 .keep .pillg{right:8px;top:8px;background:#d8f8b8;color:#1f8a2e}
 .gain .pillo,.keep .pillo{left:36%;bottom:16px;background:#ffe3c8;color:#e86a2d}
 .lose .pillo{right:8px;top:52px;background:#ffe3c8;color:#e86a2d}
-.pfoot{border-top:1px solid #eee;margin-top:6px;padding-top:14px;font-size:15px;font-weight:600;line-height:1.3}
+.pfoot{border-top:1px solid #eee;margin-top:6px;padding-top:14px;font-size:15px;font-weight:600}
 .pillbtn{background:#1c1c1e;color:#fff;border:0;border-radius:999px;padding:18px 28px;font-size:17px;font-weight:700;width:calc(100% - 40px);position:absolute;left:20px;bottom:28px}
 </style></head>
 <body>
@@ -113,42 +110,18 @@ h1{font-size:32px;line-height:1.15;font-weight:800;margin:0 0 16px;letter-spacin
   <div class="pcard gain" id="proofCard">
     <div class="glabel" id="goalLabel">Gain weight</div>
     <div class="chart gain">
-      <div class="pillg">Using Foodgoose</div>
-      <div class="lbl soon">Weight<br>soon</div>
-      <div class="lbl now">Weight<br>now</div>
-      <svg viewBox="0 0 360 250">
-        <path d="M 36 170 C 100 168 140 162 180 128 C 230 88 280 64 328 56" fill="none" stroke="#34C759" stroke-width="5" stroke-linecap="round"/>
-        <path d="M 36 170 C 90 152 130 140 170 160 C 220 184 280 132 328 148" fill="none" stroke="#FF7A45" stroke-width="3.5" stroke-dasharray="8 7" stroke-linecap="round"/>
-        <circle cx="36" cy="170" r="9" fill="#fff" stroke="#111" stroke-width="5"/>
-        <circle cx="328" cy="56" r="7" fill="#34C759"/>
-        <circle cx="328" cy="148" r="6" fill="#FF7A45"/>
-      </svg>
+      <div class="pillg">Using Foodgoose</div><div class="lbl soon">Weight<br>soon</div><div class="lbl now">Weight<br>now</div>
+      <svg viewBox="0 0 360 250"><path d="M 36 170 C 100 168 140 162 180 128 C 230 88 280 64 328 56" fill="none" stroke="#34C759" stroke-width="5" stroke-linecap="round"/><path d="M 36 170 C 90 152 130 140 170 160 C 220 184 280 132 328 148" fill="none" stroke="#FF7A45" stroke-width="3.5" stroke-dasharray="8 7" stroke-linecap="round"/><circle cx="36" cy="170" r="9" fill="#fff" stroke="#111" stroke-width="5"/><circle cx="328" cy="56" r="7" fill="#34C759"/><circle cx="328" cy="148" r="6" fill="#FF7A45"/></svg>
       <div class="pillo">Using other methods</div>
     </div>
     <div class="chart lose">
-      <div class="pillg">Using Foodgoose</div>
-      <div class="lbl soon">Weight<br>soon</div>
-      <div class="lbl now">Weight<br>now</div>
-      <svg viewBox="0 0 360 250">
-        <path d="M 36 70 C 90 78 130 110 180 150 C 230 188 280 198 328 202" fill="none" stroke="#34C759" stroke-width="5" stroke-linecap="round"/>
-        <path d="M 36 70 C 100 66 150 78 200 72 C 260 64 300 70 328 74" fill="none" stroke="#FF7A45" stroke-width="3.5" stroke-dasharray="8 7" stroke-linecap="round"/>
-        <circle cx="36" cy="70" r="9" fill="#fff" stroke="#111" stroke-width="5"/>
-        <circle cx="328" cy="202" r="7" fill="#34C759"/>
-        <circle cx="328" cy="74" r="6" fill="#FF7A45"/>
-      </svg>
+      <div class="pillg">Using Foodgoose</div><div class="lbl soon">Weight<br>soon</div><div class="lbl now">Weight<br>now</div>
+      <svg viewBox="0 0 360 250"><path d="M 36 70 C 90 78 130 110 180 150 C 230 188 280 198 328 202" fill="none" stroke="#34C759" stroke-width="5" stroke-linecap="round"/><path d="M 36 70 C 100 66 150 78 200 72 C 260 64 300 70 328 74" fill="none" stroke="#FF7A45" stroke-width="3.5" stroke-dasharray="8 7" stroke-linecap="round"/><circle cx="36" cy="70" r="9" fill="#fff" stroke="#111" stroke-width="5"/><circle cx="328" cy="202" r="7" fill="#34C759"/><circle cx="328" cy="74" r="6" fill="#FF7A45"/></svg>
       <div class="pillo">Using other methods</div>
     </div>
     <div class="chart keep">
-      <div class="pillg">Using Foodgoose</div>
-      <div class="lbl soon">Weight<br>soon</div>
-      <div class="lbl now">Weight<br>now</div>
-      <svg viewBox="0 0 360 250">
-        <path d="M 36 120 C 120 118 200 122 328 118" fill="none" stroke="#34C759" stroke-width="5" stroke-linecap="round"/>
-        <path d="M 36 120 C 90 100 140 150 190 110 C 250 70 290 160 328 138" fill="none" stroke="#FF7A45" stroke-width="3.5" stroke-dasharray="8 7" stroke-linecap="round"/>
-        <circle cx="36" cy="120" r="9" fill="#fff" stroke="#111" stroke-width="5"/>
-        <circle cx="328" cy="118" r="7" fill="#34C759"/>
-        <circle cx="328" cy="138" r="6" fill="#FF7A45"/>
-      </svg>
+      <div class="pillg">Using Foodgoose</div><div class="lbl soon">Weight<br>soon</div><div class="lbl now">Weight<br>now</div>
+      <svg viewBox="0 0 360 250"><path d="M 36 120 C 120 118 200 122 328 118" fill="none" stroke="#34C759" stroke-width="5" stroke-linecap="round"/><path d="M 36 120 C 90 100 140 150 190 110 C 250 70 290 160 328 138" fill="none" stroke="#FF7A45" stroke-width="3.5" stroke-dasharray="8 7" stroke-linecap="round"/><circle cx="36" cy="120" r="9" fill="#fff" stroke="#111" stroke-width="5"/><circle cx="328" cy="118" r="7" fill="#34C759"/><circle cx="328" cy="138" r="6" fill="#FF7A45"/></svg>
       <div class="pillo">Using other methods</div>
     </div>
     <div class="pfoot"><b>81%</b> of Foodgoose users maintain their desired weight even after 6 months</div>
@@ -168,6 +141,24 @@ h1{font-size:32px;line-height:1.15;font-weight:800;margin:0 0 16px;letter-spacin
     <button class="opt" type="button" onclick="pick(this)"><span class="ic one"><i>🍗</i></span>Paleo<span class="ck">✓</span></button>
     <button class="opt" type="button" onclick="pick(this)"><span class="ic"><i>🍞</i><i>❌</i></span>Low carb<span class="ck">✓</span></button>
     <button class="opt" type="button" onclick="pick(this)"><span class="ic one"><i>🍗</i></span>High protein<span class="ck">✓</span></button>
+  </div>
+  <button class="next" type="button" disabled onclick="if(this.classList.contains('go'))show('acc')">›</button>
+</div>
+
+<div class="view screen scroll" id="acc">
+  <div class="top"><button class="back" type="button" onclick="show('diet')">‹</button><div class="track"><div class="bar" style="width:52%"></div></div></div>
+  <h1>What do you want to accomplish?</h1>
+  <p class="sub">Select as many as you'd like</p>
+  <div class="list">
+    <button class="opt" type="button" onclick="pickMany(this)"><span class="ic"><i>🥦</i><i>🍣</i></span>Eat healthier<span class="ck">✓</span></button>
+    <button class="opt" type="button" onclick="pickMany(this)"><span class="ic one"><i>🤔</i></span>Eat more mindfully<span class="ck">✓</span></button>
+    <button class="opt" type="button" onclick="pickMany(this)"><span class="ic one"><i>🫶</i></span>Feel better about myself<span class="ck">✓</span></button>
+    <button class="opt" type="button" onclick="pickMany(this)"><span class="ic one"><i>🕶️</i></span>Prevent stress overeating<span class="ck">✓</span></button>
+    <button class="opt" type="button" onclick="pickMany(this)"><span class="ic one"><i>🔋</i></span>Boost daily energy<span class="ck">✓</span></button>
+    <button class="opt" type="button" onclick="pickMany(this)"><span class="ic one"><i>💤</i></span>Sleep better naturally<span class="ck">✓</span></button>
+    <button class="opt" type="button" onclick="pickMany(this)"><span class="ic one"><i>🛡️</i></span>Strengthen immune system<span class="ck">✓</span></button>
+    <button class="opt" type="button" onclick="pickMany(this)"><span class="ic one"><i>🎈</i></span>Improve gut health<span class="ck">✓</span></button>
+    <button class="opt" type="button" onclick="pickMany(this)"><span class="ic one"><i>🧬</i></span>Support hormone balance<span class="ck">✓</span></button>
   </div>
   <button class="next" type="button" disabled onclick="if(this.classList.contains('go'))show('home')">›</button>
 </div>
@@ -197,6 +188,13 @@ function pick(el,g){
   if(g) goal=g;
   var next=el.closest('.view').querySelector('.next');
   if(next){ next.classList.add('go'); next.disabled=false; }
+}
+function pickMany(el){
+  el.classList.toggle('on');
+  var view=el.closest('.view');
+  var any=view.querySelectorAll('.opt.on').length>0;
+  var next=view.querySelector('.next');
+  if(next){ next.classList.toggle('go', any); next.disabled=!any; }
 }
 </script>
 </body></html>
