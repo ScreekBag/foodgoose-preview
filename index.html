@@ -38,19 +38,65 @@ h1{font-size:32px;line-height:1.15;font-weight:800;margin:0 0 10px}
 <body>
 <div class="phone">
 <div class="view on welcome" id="welcome">
-  <div class="food" style="left:16px;top:5%;font-size:42px">avocado</div>
+  <div class="food" style="left:16px;top:5%;font-size:42px">🥑</div>
+  <div class="food" style="left:38%;top:6%;font-size:32px">🧀</div>
+  <div class="food" style="right:14%;top:7%;font-size:64px">🌮</div>
+  <div class="food" style="right:2%;top:16%;font-size:32px">🍕</div>
+  <div class="food" style="left:-10px;top:15%;font-size:48px">🥟</div>
+  <div class="food" style="left:24%;top:21%;font-size:40px">🍅</div>
+  <div class="food" style="right:-16px;top:22%;font-size:78px">🥬</div>
+  <div class="food" style="left:-22px;top:46%;font-size:84px">🥗</div>
+  <div class="food" style="right:7%;top:50%;font-size:42px">🍣</div>
+  <div class="food" style="left:36%;top:56%;font-size:64px;filter:blur(2px)">🍔</div>
+  <div class="food" style="left:16%;top:70%;font-size:34px">🫐</div>
+  <div class="food" style="right:16%;top:68%;font-size:42px">🍱</div>
+  <div class="food" style="left:2%;bottom:16%;font-size:48px">🌽</div>
+  <div class="food" style="right:-14px;bottom:14%;font-size:44px">🍝</div>
   <div class="hero">Track food<br>& calories<br>with <span class="g">goose</span></div>
   <div class="dock">
-    <div class="lang">EN</div>
+    <div class="lang">EN 🇬🇧</div>
     <button class="cta" type="button" onclick="show('goal')">Get Started</button>
   </div>
+</div>
+<div class="view screen" id="goal">
+  <div class="top"><button class="back" type="button" onclick="show('welcome')">‹</button><div class="track"><div class="bar" style="width:10%"></div></div></div>
+  <h1>What's your goal?</h1>
+  <div class="list">
+    <button class="opt" type="button" onclick="pick(this)">Lose weight<span class="ck">✓</span></button>
+    <button class="opt" type="button" onclick="pick(this)">Maintain<span class="ck">✓</span></button>
+    <button class="opt" type="button" onclick="pick(this)">Gain weight<span class="ck">✓</span></button>
+  </div>
+  <div class="tip">This is essential for creating your custom plan</div>
+  <button class="next" type="button" onclick="show('sex')">›</button>
+</div>
+<div class="view screen" id="sex">
+  <div class="top"><button class="back" type="button" onclick="show('goal')">‹</button><div class="track"><div class="bar" style="width:18%"></div></div></div>
+  <h1>Choose your sex</h1>
+  <p class="sub">Your personal information won't be collected or shared</p>
+  <div class="list">
+    <button class="opt" type="button" onclick="pick(this)">Male<span class="ck">✓</span></button>
+    <button class="opt" type="button" onclick="pick(this)">Female<span class="ck">✓</span></button>
+    <button class="opt" type="button" onclick="pick(this)">Other<span class="ck">✓</span></button>
+  </div>
+  <button class="next" type="button" onclick="show('home')">›</button>
+</div>
+<div class="view screen" id="home">
+  <div class="top"><b style="font-size:20px">Foodgoose</b></div>
+  <h1>1840 kcal left</h1>
+  <button class="pillbtn" type="button" onclick="show('welcome')">Restart demo</button>
 </div>
 </div>
 <script>
 function show(id){
-  var el=document.getElementById(id);
-  if(el){el.classList.add('on');}
+  var views=document.querySelectorAll('.view');
+  for (var i=0;i<views.length;i++) views[i].classList.remove('on');
+  document.getElementById(id).classList.add('on');
+  window.scrollTo(0,0);
 }
-function pick(el){el.classList.add('on');}
+function pick(el){
+  var list=el.parentNode.querySelectorAll('.opt');
+  for (var i=0;i<list.length;i++) list[i].classList.remove('on');
+  el.classList.add('on');
+}
 </script>
 </body></html>
