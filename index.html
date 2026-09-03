@@ -1,102 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-<title>Foodgoose</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Foodgoose chart</title>
 <style>
-  html,body { margin:0; background:#111; font-family:-apple-system,BlinkMacSystemFont,sans-serif; }
-  .phone { max-width:430px; margin:0 auto; min-height:100vh; background:#F6F7F3; color:#111827; padding:18px 18px 28px; }
-  .lime { background:linear-gradient(#7CFF6A,#D8FF9A 55%,#F6F7F3); }
-  .top { display:flex; align-items:center; gap:12px; }
-  .back { width:48px; height:48px; border-radius:24px; background:#fff; border:0; font-size:28px; }
-  .track { flex:1; height:7px; background:#E2E4DF; border-radius:99px; overflow:hidden; }
-  .track i { display:block; height:100%; width:24%; background:#111; }
-  h1 { font-size:30px; line-height:1.15; margin:22px 0 16px; font-weight:800; }
-  .card { background:#fff; border-radius:28px; padding:16px; }
-  .goal { color:#9AA09A; font-size:16px; font-weight:600; margin:4px 0 6px; }
-  .plot { position:relative; height:210px; }
-  svg { width:100%; height:190px; display:block; }
-  .lbl { position:absolute; font-size:13px; font-weight:700; line-height:1.2; }
-  .pill { position:absolute; border-radius:16px; padding:6px 12px; font-size:13px; font-weight:700; }
-  .pg { background:#D8F8B8; color:#1F8A2E; }
-  .po { background:#FFE3C8; color:#E86A2D; }
-  .footer { border-top:1px solid #E5E7EB; margin-top:8px; padding-top:14px; font-size:15px; line-height:1.35; }
-  .next,.btn { border:0; }
-  .next { width:72px; height:72px; border-radius:36px; background:#111; color:#fff; font-size:42px; display:flex; align-items:center; justify-content:center; margin:28px auto 0; }
-  .hero { text-align:center; padding-top:36px; }
-  .goose { width:180px; height:180px; margin:0 auto 12px; border-radius:90px; background:#fff; display:flex; align-items:center; justify-content:center; }
-  .hero h2 { font-size:32px; line-height:1.2; margin:8px 0 6px; }
-  .muted { color:#6D726D; }
-  .btn { display:block; width:100%; background:#1C1C1E; color:#fff; border-radius:18px; padding:17px; font-size:16px; font-weight:800; margin-top:24px; }
-  .opt { background:#fff; border:2px solid transparent; border-radius:16px; padding:16px 17px; margin:10px 0; font-size:16px; font-weight:700; text-align:left; width:100%; }
-  .opt.on { border-color:#55D85A; background:#F3FFF1; }
-</style>
-</head>
-<body>
-<div class="phone" id="app"></div>
+html,body{margin:0;background:#6CED69;font-family:-apple-system,sans-serif}
+.wrap{max-width:430px;margin:0 auto;padding:20px 18px 32px;min-height:100vh}
+h1{font-size:28px;line-height:1.15;margin:18px 0 14px}
+.card{background:#fff;border-radius:28px;padding:16px 14px 18px}
+.goal{color:#9AA09A;font-size:15px;margin:0 0 8px}
+.plot{position:relative;height:268px}
+svg{width:100%;height:210px;display:block;margin-top:28px}
+.lbl{position:absolute;font-size:12px;font-weight:700;line-height:1.2}
+.pill{position:absolute;z-index:2;border-radius:16px;padding:6px 12px;font-size:13px;font-weight:700}
+.pg{background:#D8F8B8;color:#1F8A2E}
+.po{background:#FFE3C8;color:#E86A2D}
+.row{display:flex;gap:8px;margin:0 0 12px}
+.btn{border:0;background:#111;color:#fff;border-radius:16px;padding:10px 14px;font-weight:700}
+.btn.off{background:#fff;color:#111}
+.foot{border-top:1px solid #E5E7EB;margin-top:10px;padding-top:14px;font-size:15px}
+</style></head><body>
+<div class="wrap">
+<div class="row">
+<button class="btn" id="lose" onclick="setG(false)">Lose weight</button>
+<button class="btn off" id="gain" onclick="setG(true)">Gain weight</button>
+</div>
+<h1>Foodgoose delivers long-term results</h1>
+<div class="card" id="card"></div>
+</div>
 <script>
-let screen = "welcome";
-let goal = "lose";
-function chart(gain){
-  const green = gain
-    ? "M 28 142 C 110 142 150 128 186 88 C 222 48 268 36 312 34"
-    : "M 28 46 C 110 46 150 62 186 102 C 222 142 268 154 312 156";
-  const orange = gain
-    ? "M 28 142 C 86 138 130 118 168 124 C 214 132 262 118 312 112"
-    : "M 28 46 C 86 52 128 40 168 58 C 214 48 258 78 312 86";
-  const gd = gain ? [312,34] : [312,156];
-  const od = gain ? [312,112] : [312,86];
-  const st = gain ? [28,142] : [28,46];
-  const now = gain ? "left:36px;top:86px" : "left:36px;top:58px";
-  const soon = gain ? "right:8px;top:48px" : "right:8px;bottom:28px";
-  const pg = gain ? "right:16px;top:0" : "left:70px;top:0";
-  const po = gain ? "right:8px;bottom:18px" : "right:8px;top:56px";
-  return `<div class="goal">${gain ? "Gain weight" : "Lose weight"}</div>
-    <div class="plot">
-      <svg viewBox="0 0 340 190">
-        <path d="${orange}" fill="none" stroke="#FF7A45" stroke-width="4" stroke-dasharray="8 9" stroke-linecap="round"/>
-        <path d="${green}" fill="none" stroke="#34C759" stroke-width="5.5" stroke-linecap="round"/>
-        <circle cx="${st[0]}" cy="${st[1]}" r="8" fill="#fff" stroke="#111827" stroke-width="5"/>
-        <circle cx="${od[0]}" cy="${od[1]}" r="7" fill="#FF7A45"/>
-        <circle cx="${gd[0]}" cy="${gd[1]}" r="8" fill="#34C759"/>
-      </svg>
-      <div class="lbl" style="${now}">Weight<br>now</div>
-      <div class="lbl" style="${soon}">Weight<br>soon</div>
-      <div class="pill pg" style="${pg}">Using Foodgoose</div>
-      <div class="pill po" style="${po}">Using other methods</div>
-    </div>`;
+let gain=false;
+function setG(v){gain=v;document.getElementById('lose').className='btn'+(v?' off':'');document.getElementById('gain').className='btn'+(v?'':' off');draw();}
+function draw(){
+ const green=gain?'M 36 168 C 120 168 160 150 200 100 C 236 56 280 40 318 36':'M 36 48 C 120 48 160 70 200 118 C 236 160 280 172 318 176';
+ const orange=gain?'M 36 168 C 100 164 150 158 200 150 C 250 142 290 146 318 148':'M 36 48 C 100 52 150 44 200 56 C 250 50 290 62 318 68';
+ const gd=gain?[318,36]:[318,176], od=gain?[318,148]:[318,68], st=gain?[36,168]:[36,48];
+ document.getElementById('card').innerHTML=`<div class="goal">${gain?'Gain weight':'Lose weight'}</div>
+ <div class="plot">
+  <div class="pill pg" style="${gain?'right:12px;top:0':'left:8px;bottom:36px'}">Using Foodgoose</div>
+  <div class="pill po" style="${gain?'right:8px;bottom:44px':'right:8px;top:0'}">Using other methods</div>
+  <svg viewBox="0 0 360 210"><path d="${orange}" fill="none" stroke="#FF7A45" stroke-width="3.5" stroke-dasharray="7 8" stroke-linecap="round"/><path d="${green}" fill="none" stroke="#34C759" stroke-width="5.5" stroke-linecap="round"/><circle cx="${st[0]}" cy="${st[1]}" r="8" fill="#fff" stroke="#111" stroke-width="5"/><circle cx="${od[0]}" cy="${od[1]}" r="6.5" fill="#FF7A45"/><circle cx="${gd[0]}" cy="${gd[1]}" r="8" fill="#34C759"/></svg>
+  <div class="lbl" style="${gain?'left:44px;bottom:56px':'left:44px;top:86px'}">Weight<br>now</div>
+  <div class="lbl" style="${gain?'right:6px;top:34px;text-align:right':'right:6px;bottom:6px;text-align:right'}">Weight<br>soon</div>
+ </div>
+ <div class="foot"><b>81%</b> of Foodgoose users maintain their desired weight even after 6 months</div>`;
 }
-function render(){
-  const el = document.getElementById("app");
-  if(screen==="welcome"){
-    el.className = "phone";
-    el.innerHTML = `<div class="hero">
-      <div class="goose"><svg viewBox="0 0 120 120" width="140" height="140"><ellipse cx="60" cy="78" rx="32" ry="28" fill="#f4f1ea"/><ellipse cx="72" cy="42" rx="18" ry="22" fill="#f4f1ea"/><ellipse cx="92" cy="44" rx="14" ry="7" fill="#f4a24b"/><circle cx="78" cy="38" r="3.2" fill="#2b2118"/></svg></div>
-      <h2>Track food & calories<br>with AI</h2>
-      <p class="muted">Foodgoose</p>
-      <button class="btn" onclick="screen='goal';render()">Get started</button>
-    </div>`;
-    return;
-  }
-  if(screen==="goal"){
-    el.className = "phone";
-    el.innerHTML = `<div class="top"><button class="back" onclick="screen='welcome';render()">‹</button><div class="track"><i style="width:6%"></i></div></div>
-      <h1>What's your goal?</h1>
-      <p class="muted">This is essential for creating your custom plan.</p>
-      ${[["lose","Lose weight"],["maintain","Maintain weight"],["gain","Gain weight"]].map(([v,l])=>`<button class="opt ${goal===v?"on":""}" onclick="goal='${v}';render()">${l}</button>`).join("")}
-      <button class="btn" onclick="screen='proof';render()">Continue</button>`;
-    return;
-  }
-  el.className = "phone lime";
-  el.innerHTML = `<div class="top"><button class="back" onclick="screen='goal';render()">‹</button><div class="track"><i></i></div></div>
-    <h1>Foodgoose delivers long-term results</h1>
-    <div class="card">${chart(goal==="gain")}
-      <div class="footer"><b>81%</b> of Foodgoose users maintain their desired weight even after 6 months</div>
-    </div>
-    <button class="next" onclick="screen='welcome';render()">›</button>`;
-}
-render();
-</script>
-</body>
-</html>
+draw();
+</script></body></html>
