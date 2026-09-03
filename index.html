@@ -7,6 +7,7 @@
 <style>
 *{box-sizing:border-box}
 html,body{margin:0;background:#fff;color:#111;font-family:-apple-system,BlinkMacSystemFont,sans-serif}
+button{appearance:none;-webkit-appearance:none;font-family:inherit;color:#111;cursor:pointer}
 .phone{max-width:430px;min-height:100dvh;margin:0 auto;position:relative;overflow:hidden}
 .view{display:none;min-height:100dvh;position:relative}
 .view.on{display:block}
@@ -17,22 +18,24 @@ html,body{margin:0;background:#fff;color:#111;font-family:-apple-system,BlinkMac
 .dock{position:absolute;left:16px;right:16px;bottom:26px;display:flex;align-items:center;z-index:3}
 .lang{display:flex;align-items:center;gap:6px;color:#8b8b8b;font-weight:700;font-size:14px;min-width:64px}
 .cta{margin:0 auto;background:#1c1c1e;color:#fff;border:0;border-radius:999px;padding:18px 42px;font-size:18px;font-weight:700}
-.screen{padding:14px 20px 110px;background:#fff}
-.top{display:flex;align-items:center;gap:12px;margin:6px 0 22px}
-.back{width:44px;height:44px;border:0;border-radius:22px;background:#f2f2f2;font-size:22px}
-.track{flex:1;height:5px;background:#ececec;border-radius:99px;overflow:hidden}
+.screen{padding:14px 20px 120px;background:#fff}
+.top{display:flex;align-items:center;gap:12px;margin:8px 0 28px}
+.back{width:44px;height:44px;border:0;border-radius:22px;background:#f2f2f2;font-size:22px;color:#111;flex:none}
+.track{flex:1;height:4px;background:#ececec;border-radius:99px;overflow:hidden}
 .bar{height:100%;background:#111}
-h1{font-size:32px;line-height:1.15;font-weight:800;margin:0 0 10px}
+h1{font-size:32px;line-height:1.15;font-weight:800;margin:0 0 18px;letter-spacing:-.5px;color:#111}
 .sub{color:#a3a3a3;font-size:16px;margin:0 0 18px}
-.list{display:flex;flex-direction:column;gap:10px}
-.opt{display:flex;align-items:center;gap:12px;min-height:64px;padding:14px 16px;border:0;border-radius:22px;background:#f3f3f3;text-align:left;font-size:17px;font-weight:600;width:100%}
+.list{display:flex;flex-direction:column;gap:12px}
+.opt{display:flex;align-items:center;gap:14px;min-height:72px;padding:16px 18px;border:0;border-radius:22px;background:#f4f4f4;text-align:left;font-size:17px;font-weight:600;width:100%;color:#111}
+.opt .ic{width:28px;height:28px;flex:none;display:flex;align-items:center;justify-content:center}
+.opt .ic svg{width:26px;height:26px}
 .opt.on{background:#8dff62}
-.ck{margin-left:auto;width:22px;height:22px;border-radius:11px;background:#111;color:#fff;display:none;align-items:center;justify-content:center}
+.ck{margin-left:auto;width:22px;height:22px;border-radius:11px;background:#111;color:#fff;font-size:13px;display:none;align-items:center;justify-content:center;flex:none}
 .opt.on .ck{display:flex}
-.tip{position:absolute;left:16px;right:16px;bottom:108px;background:#fff;border-radius:22px;padding:14px 16px;box-shadow:0 10px 30px rgba(0,0,0,.08);font-weight:600}
-.next{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);width:74px;height:74px;border:0;border-radius:37px;background:#1c1c1e;color:#fff;font-size:34px}
-.proof{background:linear-gradient(180deg,#6CED69 0%,#b8f56a 55%,#fff 100%);padding:14px 18px 110px}
-.pcard{background:#fff;border-radius:28px;padding:16px}
+.tip{position:absolute;left:16px;right:16px;bottom:118px;background:#fff;border-radius:24px;padding:16px 18px;box-shadow:0 10px 28px rgba(0,0,0,.08);font-weight:600;font-size:16px;display:flex;align-items:center;gap:12px;color:#111}
+.tip .ava{width:36px;height:36px;border-radius:18px;background:#f3f3f3;display:flex;align-items:center;justify-content:center;flex:none;font-size:22px}
+.next{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);width:74px;height:74px;border:0;border-radius:37px;background:#f2f2f2;color:#c8c8c8;font-size:32px;box-shadow:0 8px 20px rgba(0,0,0,.04)}
+.next.go{background:#1c1c1e;color:#fff}
 .pillbtn{background:#1c1c1e;color:#fff;border:0;border-radius:999px;padding:18px 28px;font-size:17px;font-weight:700;width:calc(100% - 40px);position:absolute;left:20px;bottom:28px}
 </style></head>
 <body>
@@ -59,15 +62,24 @@ h1{font-size:32px;line-height:1.15;font-weight:800;margin:0 0 10px}
   </div>
 </div>
 <div class="view screen" id="goal">
-  <div class="top"><button class="back" type="button" onclick="show('welcome')">‹</button><div class="track"><div class="bar" style="width:10%"></div></div></div>
+  <div class="top"><button class="back" type="button" onclick="show('welcome')">‹</button><div class="track"><div class="bar" style="width:8%"></div></div></div>
   <h1>What's your goal?</h1>
   <div class="list">
-    <button class="opt" type="button" onclick="pick(this)">Lose weight<span class="ck">✓</span></button>
-    <button class="opt" type="button" onclick="pick(this)">Maintain<span class="ck">✓</span></button>
-    <button class="opt" type="button" onclick="pick(this)">Gain weight<span class="ck">✓</span></button>
+    <button class="opt" type="button" onclick="pick(this)">
+      <span class="ic"><svg viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="6" fill="#E8F8E8"/><path d="M6 8h4v2H8v8H6V8zm6 4c2 6 4 8 8 8" stroke="#34C759" stroke-width="2.2" stroke-linecap="round"/><path d="M16 20h4v-4" stroke="#34C759" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      Lose weight<span class="ck">✓</span>
+    </button>
+    <button class="opt" type="button" onclick="pick(this)">
+      <span class="ic"><svg viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="6" fill="#F0F2F5"/><path d="M14 7v5" stroke="#8A93A3" stroke-width="2.2" stroke-linecap="round"/><circle cx="14" cy="14" r="2" fill="#8A93A3"/><path d="M8 20c1.4-3 3.2-4.5 6-4.5S18.6 17 20 20" stroke="#8A93A3" stroke-width="2.2" stroke-linecap="round"/><path d="M7 20h14" stroke="#8A93A3" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+      Maintain<span class="ck">✓</span>
+    </button>
+    <button class="opt" type="button" onclick="pick(this)">
+      <span class="ic"><svg viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="6" fill="#E8F1FF"/><path d="M6 20V8" stroke="#4B8CFF" stroke-width="2" stroke-linecap="round"/><path d="M6 20h16" stroke="#4B8CFF" stroke-width="2" stroke-linecap="round"/><path d="M8 16c3-1 5-8 10-8" stroke="#4B8CFF" stroke-width="2.2" stroke-linecap="round"/><path d="M15 8h4v4" stroke="#4B8CFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      Gain weight<span class="ck">✓</span>
+    </button>
   </div>
-  <div class="tip">This is essential for creating your custom plan</div>
-  <button class="next" type="button" onclick="show('sex')">›</button>
+  <div class="tip"><span class="ava">🪿</span>This is essential for creating your custom plan</div>
+  <button class="next" id="goalNext" type="button" disabled onclick="if(this.classList.contains('go'))show('sex')">›</button>
 </div>
 <div class="view screen" id="sex">
   <div class="top"><button class="back" type="button" onclick="show('goal')">‹</button><div class="track"><div class="bar" style="width:18%"></div></div></div>
@@ -78,7 +90,7 @@ h1{font-size:32px;line-height:1.15;font-weight:800;margin:0 0 10px}
     <button class="opt" type="button" onclick="pick(this)">Female<span class="ck">✓</span></button>
     <button class="opt" type="button" onclick="pick(this)">Other<span class="ck">✓</span></button>
   </div>
-  <button class="next" type="button" onclick="show('home')">›</button>
+  <button class="next" type="button" onclick="if(this.classList.contains('go'))show('home')">›</button>
 </div>
 <div class="view screen" id="home">
   <div class="top"><b style="font-size:20px">Foodgoose</b></div>
@@ -97,6 +109,8 @@ function pick(el){
   var list=el.parentNode.querySelectorAll('.opt');
   for (var i=0;i<list.length;i++) list[i].classList.remove('on');
   el.classList.add('on');
+  var next=el.closest('.view').querySelector('.next');
+  if(next){ next.classList.add('go'); next.disabled=false; }
 }
 </script>
 </body></html>
