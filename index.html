@@ -13,7 +13,7 @@ html,body{margin:0;background:#fff;color:#111;font-family:-apple-system,BlinkMac
 .welcome{background:linear-gradient(180deg,#4db4ff 0%,#5ee07a 36%,#ffe98a 70%,#fff 92%);overflow:hidden}
 .food{position:absolute;line-height:1;filter:drop-shadow(0 8px 12px rgba(0,0,0,.12));pointer-events:none}
 .hero{position:absolute;left:22px;right:22px;top:34%;text-align:center;font-size:40px;line-height:1.12;font-weight:800;letter-spacing:-.7px;z-index:2}
-.g{display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;margin:0 0 0 6px;vertical-align:-10px;border-radius:50%;background:#fff;font-size:34px;box-shadow:0 6px 16px rgba(0,0,0,.14)}
+.g{display:inline-flex;align-items:center;justify-content:center;margin:0 0 0 6px;padding:7px 14px;vertical-align:middle;border-radius:999px;background:#111;color:#fff;font-size:22px;font-weight:800;letter-spacing:-.2px;line-height:1;box-shadow:0 0 0 3px #111,0 0 0 5px #6CFF4A,0 0 0 7px #5B8CFF,0 0 0 9px #FF7AD9}
 .dock{position:absolute;left:16px;right:16px;bottom:26px;display:flex;align-items:center;z-index:3}
 .lang{display:flex;align-items:center;gap:6px;color:#8b8b8b;font-weight:700;font-size:14px;min-width:64px}
 .cta{margin:0 auto;background:#1c1c1e;color:#fff;border:0;border-radius:999px;padding:18px 42px;font-size:18px;font-weight:700}
@@ -38,78 +38,19 @@ h1{font-size:32px;line-height:1.15;font-weight:800;margin:0 0 10px}
 <body>
 <div class="phone">
 <div class="view on welcome" id="welcome">
-  <div class="food" style="left:16px;top:5%;font-size:42px">🥑</div>
-  <div class="food" style="left:38%;top:6%;font-size:32px">🧀</div>
-  <div class="food" style="right:14%;top:7%;font-size:64px">🌮</div>
-  <div class="food" style="right:2%;top:16%;font-size:32px">🍕</div>
-  <div class="food" style="left:-10px;top:15%;font-size:48px">🥟</div>
-  <div class="food" style="left:24%;top:21%;font-size:40px">🍅</div>
-  <div class="food" style="right:-16px;top:22%;font-size:78px">🥬</div>
-  <div class="food" style="left:-22px;top:46%;font-size:84px">🥗</div>
-  <div class="food" style="right:7%;top:50%;font-size:42px">🍣</div>
-  <div class="food" style="left:36%;top:56%;font-size:64px;filter:blur(2px)">🍔</div>
-  <div class="food" style="left:16%;top:70%;font-size:34px">🫐</div>
-  <div class="food" style="right:16%;top:68%;font-size:42px">🍱</div>
-  <div class="food" style="left:2%;bottom:16%;font-size:48px">🌽</div>
-  <div class="food" style="right:-14px;bottom:14%;font-size:44px">🍝</div>
-  <div class="hero">Track food<br>& calories<br>with <span class="g">🪿</span></div>
+  <div class="food" style="left:16px;top:5%;font-size:42px">avocado</div>
+  <div class="hero">Track food<br>& calories<br>with <span class="g">goose</span></div>
   <div class="dock">
-    <div class="lang">EN 🇬🇧</div>
+    <div class="lang">EN</div>
     <button class="cta" type="button" onclick="show('goal')">Get Started</button>
   </div>
-</div>
-<div class="view screen" id="goal">
-  <div class="top"><button class="back" type="button" onclick="show('welcome')">‹</button><div class="track"><div class="bar" style="width:10%"></div></div></div>
-  <h1>What's your goal?</h1>
-  <div class="list">
-    <button class="opt" type="button" onclick="pick(this)">📉 Lose weight<span class="ck">✓</span></button>
-    <button class="opt" type="button" onclick="pick(this)">⚖️ Maintain<span class="ck">✓</span></button>
-    <button class="opt" type="button" onclick="pick(this)">📈 Gain weight<span class="ck">✓</span></button>
-  </div>
-  <div class="tip">This is essential for creating your custom plan</div>
-  <button class="next" type="button" onclick="show('sex')">›</button>
-</div>
-<div class="view screen" id="sex">
-  <div class="top"><button class="back" type="button" onclick="show('goal')">‹</button><div class="track"><div class="bar" style="width:18%"></div></div></div>
-  <h1>Choose your sex</h1>
-  <p class="sub">Your personal information won't be collected or shared</p>
-  <div class="list">
-    <button class="opt" type="button" onclick="pick(this)">👨 Male<span class="ck">✓</span></button>
-    <button class="opt" type="button" onclick="pick(this)">👩 Female<span class="ck">✓</span></button>
-    <button class="opt" type="button" onclick="pick(this)">👤 Other<span class="ck">✓</span></button>
-  </div>
-  <button class="next" type="button" onclick="show('proof')">›</button>
-</div>
-<div class="view proof" id="proof">
-  <div class="top"><button class="back" type="button" onclick="show('sex')">‹</button><div class="track"><div class="bar" style="width:28%"></div></div></div>
-  <h1>Foodgoose delivers long-term results</h1>
-  <div class="pcard">
-    <div class="sub">Lose weight</div>
-    <svg viewBox="0 0 360 180" width="100%" height="180">
-      <path d="M 36 40 C 120 40 160 70 200 110 C 236 150 280 160 318 164" fill="none" stroke="#34C759" stroke-width="5.5" stroke-linecap="round"/>
-      <path d="M 36 40 C 100 44 150 36 200 48 C 250 42 290 54 318 58" fill="none" stroke="#FF7A45" stroke-width="3.5" stroke-dasharray="7 8"/>
-    </svg>
-    <div><b>81%</b> of Foodgoose users maintain their desired weight even after 6 months</div>
-  </div>
-  <button class="next" type="button" onclick="show('home')">›</button>
-</div>
-<div class="view screen" id="home">
-  <div class="top"><b style="font-size:20px">Foodgoose</b></div>
-  <h1>1840 kcal left</h1>
-  <button class="pillbtn" type="button" onclick="show('welcome')">Restart demo</button>
 </div>
 </div>
 <script>
 function show(id){
-  var views=document.querySelectorAll('.view');
-  for (var i=0;i<views.length;i++) views[i].classList.remove('on');
-  document.getElementById(id).classList.add('on');
-  window.scrollTo(0,0);
+  var el=document.getElementById(id);
+  if(el){el.classList.add('on');}
 }
-function pick(el){
-  var list=el.parentNode.querySelectorAll('.opt');
-  for (var i=0;i<list.length;i++) list[i].classList.remove('on');
-  el.classList.add('on');
-}
+function pick(el){el.classList.add('on');}
 </script>
 </body></html>
