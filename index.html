@@ -1,120 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
-<title>Foodgoose</title>
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/><title>Foodgoose</title>
 <style>
-:root{--bg:#F6F7F3;--ink:#1C1C1E;--muted:#6D726D;--green:#55D85A;--lime:#6CED69}
-*{box-sizing:border-box}
-html,body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-#app{max-width:430px;min-height:100dvh;margin:0 auto;padding:20px 18px 28px;display:flex;flex-direction:column;gap:16px}
-.center{align-items:center;text-align:center}
-h1{font-size:28px;line-height:34px;font-weight:800;margin:0}
-.hero{font-size:32px;line-height:39px;font-weight:800;margin:0}
-.muted{color:var(--muted);line-height:21px;margin:0;white-space:pre-line}
-.btn{background:var(--ink);color:#fff;border:0;border-radius:18px;padding:17px;font-weight:800;font-size:16px;width:100%;margin-top:auto}
-.back{align-self:flex-start;background:none;border:0;font-size:16px;padding:6px 0;color:var(--ink)}
-.track{height:7px;background:#E2E4DF;border-radius:99px;overflow:hidden}
-.bar{height:7px;background:var(--green);border-radius:99px}
-.opt{min-height:56px;background:#fff;border-radius:16px;padding:13px 17px;display:flex;align-items:center;justify-content:space-between;border:2px solid transparent;font-weight:700;font-size:16px;width:100%;text-align:left}
-.opt.on{border-color:var(--green);background:#F3FFF1}
-.opt.multi{background:#1C1C1E;border-color:#1C1C1E;color:#fff}
-.card{background:#fff;padding:18px;border-radius:22px}
-.tag{align-self:flex-start;background:var(--ink);color:#fff;padding:5px 10px;border-radius:99px;font-size:12px;font-weight:800}
-.field{background:#fff;border:0;border-radius:16px;padding:15px 16px;font-size:17px;width:100%;color:var(--ink)}
-.textarea{min-height:120px}
-.label{color:var(--muted);font-weight:600;margin:0 0 6px}
-.plan{font-size:31px;font-weight:800;margin:0}
-.macros{display:flex;justify-content:space-around;padding:8px 0;font-weight:800}
-.p{color:#4A90E2}.c{color:#1C1C1E}.f{color:#D28A00}
-.pace{display:flex;gap:8px}
-.pace button{flex:1;padding:15px;border:0;border-radius:14px;background:#fff;font-weight:700}
-.pace button.on{outline:2px solid var(--green);background:#F3FFF1}
-.header{display:flex;align-items:center;justify-content:space-between}
-.brand{font-size:20px;font-weight:800}
-.left{font-size:50px;font-weight:800;text-align:center;margin:6px 0 0}
-.left span{font-size:15px;color:var(--muted);font-weight:600}
-.ring{align-self:center;width:184px;height:184px;border-radius:92px;border:13px solid var(--green);display:flex;align-items:center;justify-content:center;text-align:center}
-.meal{display:flex;align-items:center;background:#fff;border-radius:18px;padding:13px;gap:12px}
-.emoji{font-size:29px}
-.kcal{font-weight:800;font-size:17px;margin-left:auto;background:none;border:0}
-.dock{display:flex;gap:10px;margin-top:auto}
-.dock button{flex:1;background:#fff;border:0;padding:16px;border-radius:17px;font-weight:700}
-.close{align-self:flex-end;width:36px;height:36px;border:0;border-radius:18px;background:#E5E7EB;font-size:20px}
-.footer{color:var(--muted);text-align:center;font-size:12px}
-.urgent{align-self:flex-start;background:var(--ink);color:#fff;font-weight:800;padding:7px;border-radius:6px}
-.sale{font-size:37px;line-height:39px;font-weight:900;margin:0}
-.spots{align-self:center;background:var(--ink);color:#fff;font-weight:800;padding:9px;border-radius:7px}
-.link{color:#0066FF;font-weight:700;background:none;border:0;padding:8px}
-.proof{background:var(--lime);margin:-20px -18px;padding:22px;min-height:100dvh;display:flex;flex-direction:column;gap:18px}
-.pback{width:48px;height:48px;border-radius:24px;border:0;background:#F6F7F3;font-size:22px}
-.ptitle{font-size:30px;line-height:36px;font-weight:800;margin:8px 0 0}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#fff;color:#111;font-family:-apple-system,BlinkMacSystemFont,sans-serif}
+#app{max-width:430px;min-height:100dvh;margin:0 auto;position:relative;overflow:hidden}
+.welcome{min-height:100dvh;background:linear-gradient(180deg,#4db4ff 0%,#5ee07a 38%,#ffe98a 72%,#fff 92%);position:relative}
+.food{position:absolute;line-height:1;filter:drop-shadow(0 8px 12px rgba(0,0,0,.12))}
+.hero{position:absolute;left:24px;right:24px;top:38%;text-align:center;font-size:40px;line-height:1.12;font-weight:800;letter-spacing:-.6px}
+.ai{display:inline-flex;margin-left:6px;padding:6px 14px;border-radius:999px;background:#111;color:#fff;font-size:22px;vertical-align:middle;box-shadow:0 0 0 3px #111,0 0 0 5px #6CFF4A,0 0 0 7px #5B8CFF,0 0 0 9px #FF7AD9}
+.dock{position:absolute;left:18px;right:18px;bottom:28px;display:flex;align-items:center;gap:12px}
+.lang{color:#8b8b8b;font-weight:700;font-size:14px}
+.cta{flex:1;max-width:230px;margin:0 auto;background:#1c1c1e;color:#fff;border:0;border-radius:999px;padding:18px 28px;font-size:18px;font-weight:700}
+.screen{min-height:100dvh;padding:14px 20px 110px;display:flex;flex-direction:column;background:#fff}
+.top{display:flex;align-items:center;gap:12px;margin:6px 0 22px}
+.back{width:44px;height:44px;border:0;border-radius:22px;background:#f2f2f2;font-size:22px}
+.track{flex:1;height:5px;background:#ececec;border-radius:99px;overflow:hidden}
+.bar{height:100%;background:#111;border-radius:99px}
+.skip{margin-left:auto;border:0;background:none;color:#b0b0b0;font-weight:600}
+h1{font-size:32px;line-height:1.15;font-weight:800;margin:0 0 10px;letter-spacing:-.5px}
+.sub{color:#a3a3a3;font-size:16px;line-height:1.35;margin:0 0 18px}
+.list{display:flex;flex-direction:column;gap:10px}
+.opt{display:flex;align-items:center;gap:14px;min-height:64px;padding:14px 16px;border:0;border-radius:22px;background:#f3f3f3;text-align:left;font-size:17px;font-weight:600;width:100%}
+.opt .ic{width:28px;text-align:center;font-size:22px}
+.opt .ck{margin-left:auto;width:22px;height:22px;border-radius:11px;background:#111;color:#fff;font-size:13px;display:none;align-items:center;justify-content:center}
+.opt.on{background:#8dff62}.opt.on .ck{display:flex}
+.tip{position:absolute;left:16px;right:16px;bottom:108px;background:#fff;border-radius:22px;padding:14px 16px;box-shadow:0 10px 30px rgba(0,0,0,.08);font-size:15px;font-weight:600}
+.next{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);width:74px;height:74px;border:0;border-radius:37px;background:#f2f2f2;color:#c8c8c8;font-size:34px}
+.next.go{background:#1c1c1e;color:#fff}
+.proof{min-height:100dvh;background:linear-gradient(180deg,#6CED69 0%,#b8f56a 55%,#fff 100%);padding:14px 18px 110px}
+.ptitle{font-size:32px;line-height:1.15;font-weight:800;margin:8px 0 18px}
 .pcard{background:#fff;border-radius:28px;padding:16px}
-.goal{color:#9AA09A;font-size:15px;font-weight:600;margin:0 0 8px}
-.plot{position:relative;height:268px}
-svg{width:100%;height:210px;display:block;margin-top:28px}
-.lbl{position:absolute;font-size:12px;font-weight:700;line-height:1.2}
+.goal{color:#9aa09a;font-weight:600;margin:0 0 6px}
+.plot{position:relative;height:250px}
+svg.chart{width:100%;height:200px;display:block;margin-top:24px}
+.lbl{position:absolute;font-size:13px;font-weight:700;line-height:1.15}
 .pill{position:absolute;z-index:2;border-radius:16px;padding:6px 12px;font-size:13px;font-weight:700}
-.pg{background:#D8F8B8;color:#1F8A2E}
-.po{background:#FFE3C8;color:#E86A2D}
-.pfoot{border-top:1px solid #E5E7EB;margin-top:10px;padding-top:14px;font-size:15px}
-.next{align-self:center;width:72px;height:72px;margin-top:auto;border:0;border-radius:36px;background:var(--ink);color:#fff;font-size:42px}
-.goose{width:140px;height:140px;margin:0 auto;display:block}
-.heroBox{width:100%;height:280px;border-radius:24px;overflow:hidden;background:linear-gradient(#d7f3c8,#f6f7f3);display:flex;align-items:flex-end;justify-content:center}
-</style>
-</head>
-<body>
-<div id="app"></div>
+.pg{background:#d8f8b8;color:#1f8a2e}.po{background:#ffe3c8;color:#e86a2d}
+.pfoot{border-top:1px solid #eee;margin-top:8px;padding-top:12px;display:flex;gap:10px;align-items:center;font-size:15px}
+.info{align-items:center;text-align:center}
+.field{background:#f3f3f3;border:0;border-radius:18px;padding:16px;font-size:17px;width:100%;margin:0 0 10px}
+.label{color:#8b8b8b;font-weight:600;margin:8px 0 6px;font-size:14px;text-align:left;width:100%}
+.plan{font-size:34px;font-weight:800;margin:8px 0}
+.card{background:#f3f3f3;border-radius:22px;padding:16px;text-align:left;width:100%}
+.macros{display:flex;justify-content:space-around;padding:8px 0;font-weight:800}
+.pace{display:flex;gap:8px;width:100%}
+.pace button{flex:1;padding:14px;border:0;border-radius:16px;background:#f3f3f3;font-weight:700}
+.pace button.on{background:#8dff62}
+.header{display:flex;align-items:center;justify-content:space-between}
+.left{font-size:48px;font-weight:800;text-align:center}.left span{font-size:15px;color:#8b8b8b;font-weight:600}
+.ring{width:168px;height:168px;border:12px solid #8dff62;border-radius:84px;margin:8px auto;display:flex;align-items:center;justify-content:center;color:#8b8b8b}
+.meal{display:flex;align-items:center;gap:12px;background:#f3f3f3;border-radius:18px;padding:12px;margin:8px 0}
+.kcal{margin-left:auto;font-weight:800;border:0;background:none}
+.homeDock{display:flex;gap:10px;margin-top:auto;padding-top:16px}
+.homeDock button{flex:1;border:0;background:#f3f3f3;padding:16px;border-radius:18px;font-weight:700}
+.close{align-self:flex-end;width:36px;height:36px;border:0;border-radius:18px;background:#f2f2f2}
+.pillbtn{background:#1c1c1e;color:#fff;border:0;border-radius:999px;padding:18px 28px;font-size:17px;font-weight:700;margin-top:auto;width:100%}
+.tag{display:inline-block;background:#111;color:#fff;border-radius:99px;padding:5px 10px;font-size:11px;font-weight:800}
+</style></head><body><div id="app"></div>
 <script>
-const foods=[{name:'Eggs & avocado toast',kcal:420,protein:22,carbs:18,fat:24,emoji:'\u{1F373}'},{name:'Chicken salad',kcal:385,protein:31,carbs:12,fat:14,emoji:'\u{1F957}'},{name:'Greek yogurt',kcal:130,protein:12,carbs:6,fat:6,emoji:'\u{1F963}'},{name:'White rice',kcal:195,protein:4,carbs:42,fat:0,emoji:'\u{1F35A}'},{name:'Avocado',kcal:160,protein:2,carbs:9,fat:15,emoji:'\u{1F951}'}];
-const diets=['Balanced','Vegetarian','Vegan','Pescatarian','Keto','Paleo','Low carb','High protein'];
-const dietLabel={Balanced:'Classic',Vegetarian:'Vegetarian',Vegan:'Vegan',Pescatarian:'Pescatarian',Keto:'Keto',Paleo:'Paleo','Low carb':'Low carb','High protein':'High protein'};
-const acts={none:1.2,light:1.375,medium:1.55,high:1.725};
-const s={screen:'welcome',goal:'lose',sex:'male',experience:'new',diet:'Keto',activity:'medium',height:'178',weight:'83',age:'32',target:'78',pace:0.4,accomplishments:[],barriers:[],hideCalories:false,annualPlan:true,description:'',query:'',meals:foods.slice(0,2)};
-function plan(){const w=+s.weight||83,h=+s.height||178,a=+s.age||32,t=+s.target||78;const base=10*w+6.25*h-5*a;const bmr=s.sex==='male'?base+5:s.sex==='female'?base-161:base-78;const tdee=bmr*acts[s.activity];const adj=s.goal==='lose'?s.pace*7700/7:s.goal==='gain'?-s.pace*7700/7:0;const min=s.sex==='male'?1500:1200;const kcal=Math.round(Math.max(min,Math.min(4000,tdee-adj)));let split=[0.25,0.45,0.30];if(s.diet==='Keto'||s.diet==='Low carb')split=[0.25,0.10,0.65];if(s.diet==='High protein')split=[0.35,0.35,0.30];if(s.diet==='Vegan'||s.diet==='Vegetarian')split=[0.20,0.55,0.25];return{kcal,bmr:Math.round(bmr),tdee:Math.round(tdee),protein:Math.round(kcal*split[0]/4),carbs:Math.round(kcal*split[1]/4),fat:Math.round(kcal*split[2]/9)};}
-function go(n){s.screen=n;render()}
-function goose(size){size=size||140;return '<svg class="goose" style="width:'+size+'px;height:'+size+'px" viewBox="0 0 200 200"><ellipse cx="100" cy="168" rx="46" ry="10" fill="#000" opacity=".08"/><path d="M78 118c-8 28 6 48 28 52 26 5 48-16 42-46-4-22-22-34-40-36-18-2-28 8-30 30z" fill="#f4f7f2" stroke="#1c1c1e" stroke-width="3"/><circle cx="118" cy="72" r="34" fill="#f4f7f2" stroke="#1c1c1e" stroke-width="3"/><path d="M148 74c18 2 28 12 22 20-6 8-22 6-28-2" fill="#f4c14a" stroke="#1c1c1e" stroke-width="2"/><circle cx="128" cy="66" r="4.5" fill="#1c1c1e"/><path d="M70 108c-28-8-38 18-18 28 14 8 28 2 34-8" fill="#e8eee4" stroke="#1c1c1e" stroke-width="3"/><path d="M92 168l6 18M118 168l8 18" stroke="#1c1c1e" stroke-width="4" stroke-linecap="round"/></svg>';}
-function chart(gain){const green=gain?'M 36 168 C 120 168 160 150 200 100 C 236 56 280 40 318 36':'M 36 48 C 120 48 160 70 200 118 C 236 160 280 172 318 176';const orange=gain?'M 36 168 C 100 164 150 158 200 150 C 250 142 290 146 318 148':'M 36 48 C 100 52 150 44 200 56 C 250 50 290 62 318 68';const gd=gain?[318,36]:[318,176],od=gain?[318,148]:[318,68],st=gain?[36,168]:[36,48];return '<div class="goal">'+(gain?'Gain weight':'Lose weight')+'</div><div class="plot"><div class="pill pg" style="'+(gain?'right:12px;top:0':'left:8px;bottom:36px')+'">Using Foodgoose</div><div class="pill po" style="'+(gain?'right:8px;bottom:44px':'right:8px;top:0')+'">Using other methods</div><svg viewBox="0 0 360 210"><path d="'+orange+'" fill="none" stroke="#FF7A45" stroke-width="3.5" stroke-dasharray="7 8" stroke-linecap="round"/><path d="'+green+'" fill="none" stroke="#34C759" stroke-width="5.5" stroke-linecap="round"/><circle cx="'+st[0]+'" cy="'+st[1]+'" r="8" fill="#fff" stroke="#111" stroke-width="5"/><circle cx="'+od[0]+'" cy="'+od[1]+'" r="6.5" fill="#FF7A45"/><circle cx="'+gd[0]+'" cy="'+gd[1]+'" r="8" fill="#34C759"/></svg><div class="lbl" style="'+(gain?'left:44px;bottom:56px':'left:44px;top:86px')+'">Weight<br>now</div><div class="lbl" style="'+(gain?'right:6px;top:34px;text-align:right':'right:6px;bottom:6px;text-align:right')+'">Weight<br>soon</div></div>';}
-function macros(p){return '<div class="macros"><span class="p">'+p.protein+'g P</span><span class="c">'+p.carbs+'g C</span><span class="f">'+p.fat+'g F</span></div>'}
-function parsed(){return s.description.toLowerCase().includes('salad')?foods[1]:foods[0]}
-function addMeal(m){s.meals=[m].concat(s.meals);go('home')}
-function toggle(list,item){s[list]=s[list].indexOf(item)>=0?s[list].filter(function(x){return x!==item}):s[list].concat([item]);render()}
-function wiz(title,pct,back,next,body){return '<button class="back" onclick="go(\''+back+'\')">\u2039 Back</button><div class="track"><div class="bar" style="width:'+pct+'%"></div></div><h1>'+title+'</h1>'+body+'<button class="btn" onclick="go(\''+next+'\')">Continue</button>'}
-function info(title,sub,back,next,pct,btn,skip,visual){btn=btn||'Continue';return (back?'<button class="back" onclick="go(\''+back+'\')">\u2039 Back</button>':'')+(pct!=null?'<div class="track"><div class="bar" style="width:'+pct+'%"></div></div>':'')+(visual||goose(120))+'<h1>'+title+'</h1><p class="muted">'+sub+'</p>'+(skip?'<button class="link" onclick="go(\''+next+'\')">Skip</button>':'')+'<button class="btn" onclick="go(\''+next+'\')">'+btn+'</button>'}
-function multi(title,sub,key,opts,back,next,pct){return '<button class="back" onclick="go(\''+back+'\')">\u2039 Back</button><div class="track"><div class="bar" style="width:'+pct+'%"></div></div><h1>'+title+'</h1><p class="muted">'+sub+'</p>'+opts.map(function(o){return '<button class="opt '+(s[key].indexOf(o)>=0?'multi':'')+'" onclick="toggle(\''+key+'\', this.getAttribute(\'data-o\'))" data-o="'+o+'">'+o+'<span>'+(s[key].indexOf(o)>=0?'\u2713':'')+'</span></button>'}).join('')+'<button class="btn" onclick="go(\''+next+'\')">Continue</button>'}
-function render(){var app=document.getElementById('app');var p=plan();var w=+s.weight||83,t=+s.target||78,diff=Math.abs(t-w).toFixed(1);var html='';
-if(s.screen==='welcome') html='<div class="heroBox">'+goose(180)+'</div><p class="hero">Track food & calories<br>with AI</p><p class="muted">Foodgoose</p><button class="btn" onclick="go(\'goal\')">Get started</button>';
-else if(s.screen==='goal') html=wiz("What's your goal?",6,'welcome','sex','<p class="muted">This is essential for creating your custom plan.</p>'+[['lose','Lose weight'],['maintain','Maintain weight'],['gain','Gain weight']].map(function(x){return '<button class="opt '+(s.goal===x[0]?'on':'')+'" onclick="s.goal=\''+x[0]+'\';render()">'+x[1]+'<span>'+(s.goal===x[0]?'\u2713':'')+'</span></button>'}).join(''));
-else if(s.screen==='sex') html=wiz('Choose your sex',12,'goal','experience','<p class="muted">Your personal information will not be collected or shared.</p>'+[['male','Male'],['female','Female'],['other','Other']].map(function(x){return '<button class="opt '+(s.sex===x[0]?'on':'')+'" onclick="s.sex=\''+x[0]+'\';render()">'+x[1]+'<span>'+(s.sex===x[0]?'\u2713':'')+'</span></button>'}).join(''));
-else if(s.screen==='experience') html=wiz('Have you tried other food or calorie tracking apps?',18,'sex','proof',[['new','I am new to this'],['past','I have tried it in the past'],['always','I always track it']].map(function(x){return '<button class="opt '+(s.experience===x[0]?'on':'')+'" onclick="s.experience=\''+x[0]+'\';render()">'+x[1]+'<span>'+(s.experience===x[0]?'\u2713':'')+'</span></button>'}).join(''));
-else if(s.screen==='proof') html='<div class="proof"><button class="pback" onclick="go(\'experience\')">\u2039</button><div class="track"><div class="bar" style="width:24%;background:#1C1C1E"></div></div><h1 class="ptitle">Foodgoose delivers long-term results</h1><div class="pcard">'+chart(s.goal==='gain')+'<div class="pfoot"><b>81%</b> of Foodgoose users maintain their desired weight even after 6 months</div></div><button class="next" onclick="go(\'diet\')">\u203A</button></div>';
-else if(s.screen==='diet') html=wiz('What diet do you usually stick to?',30,'proof','accomplishments',diets.map(function(v){return '<button class="opt '+(s.diet===v?'on':'')+'" onclick="s.diet=\''+v+'\';render()">'+dietLabel[v]+'<span>'+(s.diet===v?'\u2713':'')+'</span></button>'}).join(''));
-else if(s.screen==='accomplishments') html=multi('What do you want to accomplish?','Select as many as you like','accomplishments',['Eat healthier','Eat more mindfully','Feel better about myself','Prevent stress overeating','Boost daily energy','Sleep better naturally','Strengthen immune system','Improve gut health','Support hormone balance'],'diet','remind',36);
-else if(s.screen==='remind') html=info('Do not forget to track what you eat.','You are 3.6x more likely to achieve your goal if you are consistent!','accomplishments','activity',42,'Remind me, I am in!',true);
-else if(s.screen==='activity') html=wiz('How active are you?',48,'remind','body',[['none','Mostly sedentary lifestyle'],['light','Occasional workouts or long walks'],['medium','Several workouts per week'],['high','Constantly working out']].map(function(x){return '<button class="opt '+(s.activity===x[0]?'on':'')+'" onclick="s.activity=\''+x[0]+'\';render()">'+x[1]+'<span>'+(s.activity===x[0]?'\u2713':'')+'</span></button>'}).join(''));
-else if(s.screen==='body') html=wiz('Adjust all to create your custom plan.',54,'activity','target','<p class="muted">Your personal information will not be collected or shared.</p><p class="label">Height (cm)</p><input class="field" value="'+s.height+'" oninput="s.height=this.value"><p class="label">Current weight (kg)</p><input class="field" value="'+s.weight+'" oninput="s.weight=this.value"><p class="label">Age (14-99)</p><input class="field" value="'+s.age+'" oninput="s.age=this.value">');
-else if(s.screen==='target') html=wiz("What's your target weight?",60,'body','realistic',goose(120)+'<p class="label">Target weight (kg)</p><input class="field" value="'+s.target+'" oninput="s.target=this.value">');
-else if(s.screen==='realistic') html=info((s.goal==='gain'?'Gaining':s.goal==='lose'?'Losing':'Maintaining')+' '+diff+' kg is a realistic goal!','People say it is easier to build a lasting habit with Foodgoose.','target','pace',66);
-else if(s.screen==='pace') html=wiz('How soon do you want to reach your goal?',72,'realistic','barriers','<p class="plan">'+(s.goal==='gain'?'+':s.goal==='maintain'?'':'-')+s.pace.toFixed(1)+' kg / week</p><div class="card"><p class="muted">You will reach your goal in '+Math.max(1,Math.round(Math.abs(t-w)/s.pace/4.345*10)/10)+' months</p><p><b>Daily calorie goal: '+p.kcal.toLocaleString()+'</b></p></div><div class="pace">'+[0.2,0.4,0.6,0.8].map(function(v){return '<button class="'+(s.pace===v?'on':'')+'" onclick="s.pace='+v+';render()">'+v+'</button>'}).join('')+'</div>');
-else if(s.screen==='barriers') html=multi('What usually stops you from reaching goals?','Select none or as many as you like','barriers',['Low motivation','Unhealthy habits','Hard to stay consistent','Lack of support','Busy schedule','Self-discipline'],'pace','results',78);
-else if(s.screen==='results') html=info('Get 93% better results with Foodgoose VS without.','Foodgoose makes food tracking fun and holds you accountable.','barriers','timeline',84);
-else if(s.screen==='timeline') html=info('When should you expect to see results?','Weight change may be delayed at first, but after 7 days you will start seeing change.','results','awards',90,'Continue',false,'<p style="font-size:18px;line-height:28px">Today --- 7 days --------- 30 days<br>reset &nbsp;&nbsp; visible change</p>');
-else if(s.screen==='awards') html=info('Cultural impact of the apps we create.','6 Million+ users · 350,000+ five-star ratings · Apple Design Award Finalist','timeline','launch',96,'Continue',false,'<p style="font-size:28px;margin:0">***** </p><p class="muted">Foodgoose makes tracking fun.</p>');
-else if(s.screen==='launch') html=info('Your custom plan is one tap away!','All systems go. Let us do it!','awards','loading',100,'Get my personal plan');
-else if(s.screen==='loading') html=info('Setting up your personal plan...','Analyzing your data\nPersonalizing goals\nFeeding geese',null,'plan',null,'See my plan');
-else if(s.screen==='plan') html='<div class="tag">YOUR PERSONAL PLAN</div><h1>You will '+s.goal+' '+diff+' kg</h1><div class="card"><p class="plan">'+(s.hideCalories?'Balanced':p.kcal.toLocaleString()+' kcal')+'</p><p class="muted">Calorie goal based on your data</p>'+macros(p)+'<button class="link" onclick="s.hideCalories=!s.hideCalories;render()">'+(s.hideCalories?'Show calorie numbers':'Hide calorie numbers')+'</button></div><p class="muted">BMR '+p.bmr+' · TDEE '+p.tdee+'\nTailored for '+s.diet+' · '+s.activity+' activity</p><button class="btn" onclick="go(\'scan\')">Continue</button>';
-else if(s.screen==='scan') html=info('You can try Foodgoose absolutely FREE.','AI CAMERA DEMO · No payment due now.',null,'trialReminder',null,'Try for 0,00 EUR');
-else if(s.screen==='trialReminder') html=info('We will remind you before your free trial ends.','1 day before end · Notifications are a web demo.',null,'paywall',null,'Continue for FREE');
-else if(s.screen==='paywall') html='<button class="close" onclick="go(\'downsell\')">x</button>'+goose(56)+'<h1>How free trial works</h1><p class="muted">AI recognition requires real processing power. That is why it works via subscription.</p><div class="card"><p><b>Today</b> · Full AI access. No payment now.</p><p><b>In 2 days</b> · Friendly reminder</p><p><b>In 3 days</b> · Subscription starts. Cancel anytime.</p></div><button class="opt '+(s.annualPlan?'on':'')+'" onclick="s.annualPlan=true;render()">-50% ENDS SOON<br>0,00 EUR now · 3 days free, then 34,99 EUR/year</button><button class="opt '+(!s.annualPlan?'on':'')+'" onclick="s.annualPlan=false;render()">9,99 EUR / month<br>Billed monthly</button><p class="muted">Camera food tracking\nAI meal breakdown\nDaily insights</p><button class="btn" onclick="go(\'home\')">Start my 3-day free trial</button><p class="footer">Terms of Service · Privacy Policy · Restore Purchases</p>';
-else if(s.screen==='downsell') html='<button class="close" onclick="go(\'home\')">x</button><div class="urgent">EXPIRES IF YOU LEAVE</div><p class="sale">67% OFF<br>FOREVER</p>'+goose(120)+'<div class="spots">7 SPOTS LEFT</div><div class="card"><p class="muted">69,99 EUR/year</p><p class="plan">1,91 EUR / month</p><p><b>22,99 EUR / year · Lowest price ever!</b></p></div><p class="muted">Rated 4.9 by 350,000+ happy users</p><button class="btn" onclick="go(\'home\')">Get special offer -67%</button>';
-else if(s.screen==='describe'){var m=parsed();html='<button class="back" onclick="go(\'home\')">\u2039 Back</button><h1>What did you eat?</h1><textarea class="field textarea" placeholder="2 fried eggs, avocado toast" oninput="s.description=this.value">'+s.description+'</textarea><div class="card"><b>'+m.name+'</b><p class="muted">'+m.kcal+' kcal · '+m.protein+'g protein · '+m.carbs+'g carbs · '+m.fat+'g fat</p></div><button class="btn" onclick="addMeal(parsed())">+ Add meal</button>';}
-else if(s.screen==='search'){var r=foods.filter(function(f){return f.name.toLowerCase().indexOf(s.query.toLowerCase())>=0});html='<button class="back" onclick="go(\'home\')">\u2039 Back</button><h1>Food database</h1><input class="field" placeholder="Type to search..." value="'+s.query+'" oninput="s.query=this.value;render()">'+(r.length?r.map(function(m){return '<div class="meal"><span class="emoji">'+m.emoji+'</span><div><b>'+m.name+'</b><p class="muted">'+m.protein+'g P · '+m.carbs+'g C · '+m.fat+'g F</p></div><button class="kcal" onclick="addMeal(foods['+foods.indexOf(m)+'])">+'+m.kcal+'</button></div>'}).join(''):'<p class="muted" style="text-align:center;margin-top:24px">No food found. Try another search.</p>');}
-else if(s.screen==='profile') html='<button class="back" onclick="go(\'home\')">\u2039 Back</button><div class="center">'+goose(160)+'<h1>Your profile</h1></div><div class="card"><b>'+s.weight+' kg now · Goal '+s.target+' kg</b><p class="muted">'+p.kcal+' daily calorie goal</p></div><div class="opt">Diet · '+s.diet+'</div>';
-else {var eaten=s.meals.reduce(function(n,m){return n+m.kcal},0);html='<div class="header"><div class="brand">Foodgoose</div><button style="border:0;background:none" onclick="go(\'profile\')">'+goose(36)+'</button></div><div class="left">'+Math.max(0,p.kcal-eaten).toLocaleString()+'<span> kcal left</span></div><div class="ring"><span class="muted">'+Math.round(eaten/p.kcal*100)+'% of daily goal</span></div>'+macros(p)+'<h1 style="font-size:20px">Today\'s meals</h1>'+s.meals.map(function(m){return '<div class="meal"><span class="emoji">'+m.emoji+'</span><div><b>'+m.name+'</b><p class="muted">'+m.protein+'g P · '+m.carbs+'g C · '+m.fat+'g F</p></div><span class="kcal">'+m.kcal+'</span></div>'}).join('')+'<div class="dock"><button onclick="go(\'describe\')">Describe</button><button onclick="go(\'search\')">Search</button></div>';}
-app.className=(s.screen==='welcome'||['remind','realistic','results','timeline','awards','launch','loading','scan','trialReminder'].indexOf(s.screen)>=0)?'center':'';
-if(s.screen==='proof'){app.style.padding='0';app.innerHTML=html;return;}app.style.padding='20px 18px 28px';app.innerHTML=html;}
-render();
-</script>
-</body>
-</html>
