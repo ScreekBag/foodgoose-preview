@@ -27,13 +27,14 @@ h1{font-size:32px;line-height:1.15;font-weight:800;margin:0 0 18px;letter-spacin
 .sub{color:#a3a3a3;font-size:16px;margin:0 0 18px}
 .list{display:flex;flex-direction:column;gap:12px}
 .opt{display:flex;align-items:center;gap:14px;min-height:72px;padding:16px 18px;border:0;border-radius:22px;background:#f4f4f4;text-align:left;font-size:17px;font-weight:600;width:100%;color:#111}
-.opt .ic{width:28px;height:28px;flex:none;display:flex;align-items:center;justify-content:center}
-.opt .ic svg{width:26px;height:26px}
+.opt .ic{width:36px;height:36px;flex:none;display:flex;align-items:center;justify-content:center}
+.opt .ic svg{width:36px;height:36px}
 .opt.on{background:#8dff62}
 .ck{margin-left:auto;width:22px;height:22px;border-radius:11px;background:#111;color:#fff;font-size:13px;display:none;align-items:center;justify-content:center;flex:none}
 .opt.on .ck{display:flex}
 .tip{position:absolute;left:16px;right:16px;bottom:118px;background:#fff;border-radius:24px;padding:16px 18px;box-shadow:0 10px 28px rgba(0,0,0,.08);font-weight:600;font-size:16px;display:flex;align-items:center;gap:12px;color:#111}
-.tip .ava{width:36px;height:36px;border-radius:18px;background:#f3f3f3;display:flex;align-items:center;justify-content:center;flex:none;font-size:22px}
+.tip .ava{width:40px;height:40px;border-radius:20px;background:#f4f4f4;display:flex;align-items:center;justify-content:center;flex:none}
+.tip .ava svg{width:28px;height:28px}
 .next{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);width:74px;height:74px;border:0;border-radius:37px;background:#f2f2f2;color:#c8c8c8;font-size:32px;box-shadow:0 8px 20px rgba(0,0,0,.04)}
 .next.go{background:#1c1c1e;color:#fff}
 .pillbtn{background:#1c1c1e;color:#fff;border:0;border-radius:999px;padding:18px 28px;font-size:17px;font-weight:700;width:calc(100% - 40px);position:absolute;left:20px;bottom:28px}
@@ -66,20 +67,23 @@ h1{font-size:32px;line-height:1.15;font-weight:800;margin:0 0 18px;letter-spacin
   <h1>What's your goal?</h1>
   <div class="list">
     <button class="opt" type="button" onclick="pick(this)">
-      <span class="ic"><svg viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="6" fill="#E8F8E8"/><path d="M6 8h4v2H8v8H6V8zm6 4c2 6 4 8 8 8" stroke="#34C759" stroke-width="2.2" stroke-linecap="round"/><path d="M16 20h4v-4" stroke="#34C759" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="ic"><svg viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="9" fill="#E9F9E6"/><path d="M8 10h2v16H8zm5 0h2v16h-2zm5 0h2v16h-2zm5 0h2v16h-2" stroke="#C8EBC0" stroke-width="1.2"/><path d="M9 13c4 1 7 5 10 8 3 3 5 7 9 8" stroke="#2FCC5A" stroke-width="2.6" stroke-linecap="round" fill="none"/><path d="M24 29h6v-6" stroke="#2FCC5A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       Lose weight<span class="ck">✓</span>
     </button>
     <button class="opt" type="button" onclick="pick(this)">
-      <span class="ic"><svg viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="6" fill="#F0F2F5"/><path d="M14 7v5" stroke="#8A93A3" stroke-width="2.2" stroke-linecap="round"/><circle cx="14" cy="14" r="2" fill="#8A93A3"/><path d="M8 20c1.4-3 3.2-4.5 6-4.5S18.6 17 20 20" stroke="#8A93A3" stroke-width="2.2" stroke-linecap="round"/><path d="M7 20h14" stroke="#8A93A3" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+      <span class="ic"><svg viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="9" fill="#EEF1F6"/><path d="M18 7v9" stroke="#8E97A8" stroke-width="2.3" stroke-linecap="round"/><circle cx="18" cy="17.5" r="2.2" fill="#8E97A8"/><path d="M10 16.5h16" stroke="#8E97A8" stroke-width="2.3" stroke-linecap="round"/><path d="M10 16.5l-3 10h8l-5-10zm16 0l3 10h-8l5-10z" fill="#C5CDD8" stroke="#8E97A8" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
       Maintain<span class="ck">✓</span>
     </button>
     <button class="opt" type="button" onclick="pick(this)">
-      <span class="ic"><svg viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="6" fill="#E8F1FF"/><path d="M6 20V8" stroke="#4B8CFF" stroke-width="2" stroke-linecap="round"/><path d="M6 20h16" stroke="#4B8CFF" stroke-width="2" stroke-linecap="round"/><path d="M8 16c3-1 5-8 10-8" stroke="#4B8CFF" stroke-width="2.2" stroke-linecap="round"/><path d="M15 8h4v4" stroke="#4B8CFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="ic"><svg viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="9" fill="#E7F0FF"/><path d="M8 10h2v16H8zm5 0h2v16h-2zm5 0h2v16h-2zm5 0h2v16h-2" stroke="#C5D8FF" stroke-width="1.2"/><path d="M9 27c4-1 7-6 10-9 3-3 6-8 9-10" stroke="#4B8CFF" stroke-width="2.6" stroke-linecap="round" fill="none"/><path d="M24 8h6v6" stroke="#4B8CFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       Gain weight<span class="ck">✓</span>
     </button>
   </div>
-  <div class="tip"><span class="ava">🪿</span>This is essential for creating your custom plan</div>
-  <button class="next" id="goalNext" type="button" disabled onclick="if(this.classList.contains('go'))show('sex')">›</button>
+  <div class="tip">
+    <span class="ava"><svg viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="18" fill="#f0f0f0"/><ellipse cx="18" cy="23" rx="8" ry="7" fill="#fff"/><circle cx="18" cy="14" r="6.2" fill="#fff"/><circle cx="16.4" cy="13.2" r="1.2" fill="#1c1c1e"/><path d="M11 14.2c-2 .4-3.4 1.6-3.6 3.1 1.6.2 3.2-.6 4.2-1.8z" fill="#FF8A2A"/><path d="M18 20c2.4 2 5.5 2 8 .4" stroke="#E7E7E7" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+    This is essential for creating your custom plan
+  </div>
+  <button class="next" type="button" disabled onclick="if(this.classList.contains('go'))show('sex')">›</button>
 </div>
 <div class="view screen" id="sex">
   <div class="top"><button class="back" type="button" onclick="show('goal')">‹</button><div class="track"><div class="bar" style="width:18%"></div></div></div>
