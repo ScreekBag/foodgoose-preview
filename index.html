@@ -19,22 +19,24 @@ button{appearance:none;-webkit-appearance:none;font-family:inherit;color:#111;cu
 .lang{color:#8b8b8b;font-weight:700;font-size:14px;min-width:64px}
 .cta{margin:0 auto;background:#1c1c1e;color:#fff;border:0;border-radius:999px;padding:18px 42px;font-size:18px;font-weight:700}
 .screen{padding:14px 20px 120px;background:#fff}
+.screen.scroll{overflow:auto;max-height:100dvh}
 .top{display:flex;align-items:center;gap:12px;margin:8px 0 22px}
-.back{width:44px;height:44px;border:0;border-radius:22px;background:#fff;font-size:22px;color:#111;flex:none}
-.track{flex:1;height:4px;background:rgba(0,0,0,.12);border-radius:99px;overflow:hidden}
+.back{width:44px;height:44px;border:0;border-radius:22px;background:#f2f2f2;font-size:22px;color:#111;flex:none}
+.track{flex:1;height:4px;background:#ececec;border-radius:99px;overflow:hidden}
 .bar{height:100%;background:#111}
 h1{font-size:32px;line-height:1.15;font-weight:800;margin:0 0 10px;letter-spacing:-.5px;color:#111}
 .sub{color:#b0b0b0;font-size:16px;line-height:1.35;margin:0 0 22px;font-weight:500}
-.list{display:flex;flex-direction:column;gap:12px}
-.opt{display:flex;align-items:center;gap:14px;min-height:72px;padding:16px 18px;border:0;border-radius:22px;background:#f4f4f4;text-align:left;font-size:17px;font-weight:600;width:100%;color:#111}
-.opt .ic{width:36px;height:36px;flex:none;display:flex;align-items:center;justify-content:center;font-size:26px}
+.list{display:flex;flex-direction:column;gap:10px}
+.opt{display:flex;align-items:center;gap:14px;min-height:64px;padding:14px 16px;border:0;border-radius:22px;background:#f4f4f4;text-align:left;font-size:17px;font-weight:600;width:100%;color:#111}
+.opt .ic{width:36px;height:36px;flex:none;display:flex;align-items:center;justify-content:center;font-size:22px}
 .opt.on{background:#8dff62}
-.ck{margin-left:auto;width:22px;height:22px;border-radius:11px;background:#111;color:#fff;font-size:13px;display:none;align-items:center;justify-content:center;flex:none}
+.ck{margin-left:auto;width:24px;height:24px;border-radius:12px;background:#111;color:#fff;font-size:13px;display:none;align-items:center;justify-content:center;flex:none}
 .opt.on .ck{display:flex}
 .tip{position:absolute;left:16px;right:16px;bottom:118px;background:#fff;border-radius:24px;padding:16px 18px;box-shadow:0 10px 28px rgba(0,0,0,.08);font-weight:600;font-size:16px}
-.next{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);width:74px;height:74px;border:0;border-radius:37px;background:#f2f2f2;color:#c8c8c8;font-size:32px}
+.next{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);width:74px;height:74px;border:0;border-radius:37px;background:#f2f2f2;color:#c8c8c8;font-size:32px;z-index:5}
 .next.go,.next.ready{background:#1c1c1e;color:#fff}
 .proof{background:linear-gradient(180deg,#7AF06A 0%,#B6F56A 42%,#F6FFB0 72%,#fff 92%);padding:14px 18px 120px}
+.proof .back{background:#fff}
 .proof h1{margin-bottom:16px}
 .pcard{background:#fff;border-radius:28px;padding:18px 16px 16px}
 .glabel{color:#b0b0b0;font-weight:700;font-size:15px;margin:0 0 8px}
@@ -50,13 +52,11 @@ h1{font-size:32px;line-height:1.15;font-weight:800;margin:0 0 10px;letter-spacin
 .keep .lbl.soon{right:10px;top:28%}
 .pillg,.pillo{position:absolute;border-radius:16px;padding:7px 12px;font-size:13px;font-weight:800;z-index:3;white-space:nowrap}
 .gain .pillg{right:8px;top:42px;background:#d8f8b8;color:#1f8a2e}
-.lose .pillg{left:18px;bottom:18px;right:auto;background:#d8f8b8;color:#1f8a2e}
+.lose .pillg{left:18px;bottom:18px;background:#d8f8b8;color:#1f8a2e}
 .keep .pillg{right:8px;top:8px;background:#d8f8b8;color:#1f8a2e}
-.gain .pillo{left:36%;bottom:16px;background:#ffe3c8;color:#e86a2d}
-.lose .pillo{right:8px;top:52px;left:auto;background:#ffe3c8;color:#e86a2d}
-.keep .pillo{left:36%;bottom:16px;background:#ffe3c8;color:#e86a2d}
+.gain .pillo,.keep .pillo{left:36%;bottom:16px;background:#ffe3c8;color:#e86a2d}
+.lose .pillo{right:8px;top:52px;background:#ffe3c8;color:#e86a2d}
 .pfoot{border-top:1px solid #eee;margin-top:6px;padding-top:14px;display:flex;gap:10px;align-items:flex-start;font-size:15px;font-weight:600;line-height:1.3}
-.pfoot .ava{width:36px;height:36px;flex:none}
 .pillbtn{background:#1c1c1e;color:#fff;border:0;border-radius:999px;padding:18px 28px;font-size:17px;font-weight:700;width:calc(100% - 40px);position:absolute;left:20px;bottom:28px}
 </style></head>
 <body>
@@ -109,7 +109,6 @@ h1{font-size:32px;line-height:1.15;font-weight:800;margin:0 0 10px;letter-spacin
   <h1>Foodgoose delivers long-term results</h1>
   <div class="pcard gain" id="proofCard">
     <div class="glabel" id="goalLabel">Gain weight</div>
-
     <div class="chart gain">
       <div class="pillg">Using Foodgoose</div>
       <div class="lbl soon">Weight<br>soon</div>
@@ -123,7 +122,6 @@ h1{font-size:32px;line-height:1.15;font-weight:800;margin:0 0 10px;letter-spacin
       </svg>
       <div class="pillo">Using other methods</div>
     </div>
-
     <div class="chart lose">
       <div class="pillg">Using Foodgoose</div>
       <div class="lbl soon">Weight<br>soon</div>
@@ -137,7 +135,6 @@ h1{font-size:32px;line-height:1.15;font-weight:800;margin:0 0 10px;letter-spacin
       </svg>
       <div class="pillo">Using other methods</div>
     </div>
-
     <div class="chart keep">
       <div class="pillg">Using Foodgoose</div>
       <div class="lbl soon">Weight<br>soon</div>
@@ -151,13 +148,25 @@ h1{font-size:32px;line-height:1.15;font-weight:800;margin:0 0 10px;letter-spacin
       </svg>
       <div class="pillo">Using other methods</div>
     </div>
-
-    <div class="pfoot">
-      <svg class="ava" viewBox="0 0 36 36"><circle cx="18" cy="18" r="18" fill="#fff3d6"/><circle cx="18" cy="14" r="6" fill="#fff"/><ellipse cx="18" cy="24" rx="8" ry="7" fill="#fff"/></svg>
-      <div><b>81%</b> of Foodgoose users maintain their desired weight even after 6 months</div>
-    </div>
+    <div class="pfoot"><div><b>81%</b> of Foodgoose users maintain their desired weight even after 6 months</div></div>
   </div>
-  <button class="next ready" type="button" onclick="show('home')">›</button>
+  <button class="next ready" type="button" onclick="show('diet')">›</button>
+</div>
+
+<div class="view screen scroll" id="diet">
+  <div class="top"><button class="back" type="button" onclick="show('proof')">‹</button><div class="track"><div class="bar" style="width:40%"></div></div></div>
+  <h1>What diet do you usually stick to?</h1>
+  <div class="list">
+    <button class="opt" type="button" onclick="pick(this)"><span class="ic">⚖️</span>Balanced<span class="ck">✓</span></button>
+    <button class="opt" type="button" onclick="pick(this)"><span class="ic">🧀🍅</span>Vegetarian<span class="ck">✓</span></button>
+    <button class="opt" type="button" onclick="pick(this)"><span class="ic">🥬🥕</span>Vegan<span class="ck">✓</span></button>
+    <button class="opt" type="button" onclick="pick(this)"><span class="ic">🍏🐟</span>Pescatarian<span class="ck">✓</span></button>
+    <button class="opt" type="button" onclick="pick(this)"><span class="ic">🥑🥚</span>Keto<span class="ck">✓</span></button>
+    <button class="opt" type="button" onclick="pick(this)"><span class="ic">🍗</span>Paleo<span class="ck">✓</span></button>
+    <button class="opt" type="button" onclick="pick(this)"><span class="ic">🍞</span>Low carb<span class="ck">✓</span></button>
+    <button class="opt" type="button" onclick="pick(this)"><span class="ic">🥩</span>High protein<span class="ck">✓</span></button>
+  </div>
+  <button class="next" type="button" disabled onclick="if(this.classList.contains('go'))show('home')">›</button>
 </div>
 
 <div class="view screen" id="home">
@@ -174,8 +183,7 @@ function show(id){
   document.getElementById(id).classList.add('on');
   if(id==='proof'){
     document.getElementById('goalLabel').textContent=goal;
-    var card=document.getElementById('proofCard');
-    card.className='pcard '+(goal==='Lose weight'?'lose':goal==='Maintain'?'keep':'gain');
+    document.getElementById('proofCard').className='pcard '+(goal==='Lose weight'?'lose':goal==='Maintain'?'keep':'gain');
   }
   window.scrollTo(0,0);
 }
