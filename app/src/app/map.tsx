@@ -1,6 +1,6 @@
 import { useLocalSearchParams } from 'expo-router';
 import { Linking, Pressable, Text, View } from 'react-native';
-import MapView, { Marker, Polyline } from 'react-native-maps';
+import RouteMap from '../components/RouteMap';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Body } from '../components/ui';
 import { useLocation } from '../lib/location';
@@ -21,17 +21,7 @@ export default function MapScreen() {
 
   return (
     <View style={{ flex: 1, backgroundColor: c.bg }}>
-      <MapView
-        style={{ flex: 1 }}
-        initialRegion={{ latitude: target.lat, longitude: target.lng, latitudeDelta: 0.008, longitudeDelta: 0.008 }}
-        showsUserLocation={permission === 'granted'}
-        showsPointsOfInterests={false}>
-        <Polyline coordinates={route.stops.map((s) => ({ latitude: s.lat, longitude: s.lng }))} strokeColor={c.accent} strokeWidth={3} lineDashPattern={[8, 6]} />
-        {route.stops.map((s) => (
-          <Marker key={s.id} coordinate={{ latitude: s.lat, longitude: s.lng }} title={`${s.order}. ${s.title}`}
-            pinColor={s.id === target.id ? c.sadu : tour.heard.includes(s.id) ? c.success : c.muted} />
-        ))}
-      </MapView>
+      <RouteMap center={{ lat: target.lat, lng: target.lng, delta: 0.008 }} targetId={target.id} heard={tour.heard} showUser={permission === 'granted'} />
       <View style={{ position: 'absolute', left: space.lg, right: space.lg, bottom: insets.bottom + space.lg, backgroundColor: c.surface, borderRadius: radius.lg, padding: space.lg, gap: space.sm, borderWidth: 1, borderColor: c.border }}>
         <Text style={{ fontFamily: font.display, fontSize: 18, color: c.text }}>{target.order}. {target.title}</Text>
         <Body muted>{dist != null ? `Примерно ${formatDistance(dist)} от вас` : 'Ваше местоположение пока неизвестно'}</Body>
