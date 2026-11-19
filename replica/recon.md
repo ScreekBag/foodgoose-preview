@@ -148,3 +148,9 @@ Screens 12, flows 5, entities 5. Hard parts: (1) writing and checking the
 content for 7 stops, (2) natural-sounding voice in the chosen language,
 (3) GPS triggers + audio that keeps playing with the phone locked.
 Size: M (a few weeks of part-time work) for a polished v1 in TestFlight.
+
+## Decisions (user, 2026-11-19)
+
+- Narration language: **Russian** (others later).
+- Route: **Old Kuwait City — from the Gulf to the Souq**, 7 stops as above.
+- Voice: **living storyteller** — warm, like a local friend: stories, details, a bit of humour.
