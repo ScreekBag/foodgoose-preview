@@ -29,20 +29,20 @@ export default function Settings() {
       <Card>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: space.md }}>
           <View style={{ flex: 1, gap: 2 }}>
-            <Text style={{ fontFamily: font.uiBold, fontSize: 16, color: c.text }}>Предлагать рассказ у остановки</Text>
-            <Body muted style={{ fontSize: 14 }}>Гид напишет первым, когда вы подойдёте</Body>
+            <Text style={{ fontFamily: font.uiBold, fontSize: 16, color: c.text }}>Подсказывать у остановки</Text>
+            <Body muted style={{ fontSize: 14 }}>Когда вы подойдёте к месту, приложение предложит рассказ</Body>
           </View>
           <Switch value={tour.settings.autoOffer} onValueChange={(v) => tour.updateSettings({ autoOffer: v })} trackColor={{ true: c.accent }} />
         </View>
       </Card>
       <Card>
         <Label color={c.accent}>Голос</Label>
-        <Body>Сейчас рассказ читает встроенный голос iPhone. Профессиональная озвучка «живого рассказчика» появится в следующей версии.</Body>
+        <Body>Если профессиональная озвучка ещё не загружена, рассказ читает встроенный голос iPhone.</Body>
         <Body muted style={{ fontSize: 14 }}>Совет: в Настройках iPhone → Универсальный доступ → Устная речь можно скачать улучшенный русский голос, он звучит естественнее.</Body>
       </Card>
       <Card>
         <Label>Начать заново</Label>
-        <Body muted>Сотрёт историю переписки и прогресс маршрута.</Body>
+        <Body muted>Сотрёт отметки о прослушанных остановках.</Body>
         {confirm ? (
           <View style={{ flexDirection: 'row', gap: space.sm }}>
             <Pressable accessibilityRole="button" onPress={() => { tour.reset(); setConfirm(false); }} style={{ paddingVertical: 10, paddingHorizontal: 16, borderRadius: radius.pill, backgroundColor: c.sadu }}>

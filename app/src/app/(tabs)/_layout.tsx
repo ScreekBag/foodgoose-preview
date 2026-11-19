@@ -18,8 +18,7 @@ export default function TabsLayout() {
         headerTitleStyle: { fontFamily: font.uiBold, color: c.text },
         sceneStyle: { backgroundColor: c.bg },
       }}>
-      <Tabs.Screen name="index" options={{ title: 'Гид', headerShown: false, tabBarIcon: glyph('◉') }} />
-      <Tabs.Screen name="routes" options={{ title: 'Маршруты', tabBarIcon: glyph('⌁') }} />
+      <Tabs.Screen name="index" options={{ title: 'Экскурсия', headerShown: false, tabBarIcon: glyph('◉') }} />
       <Tabs.Screen name="settings" options={{ title: 'Настройки', tabBarIcon: glyph('⚙') }} />
     </Tabs>
   );

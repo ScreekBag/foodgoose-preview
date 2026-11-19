@@ -46,7 +46,6 @@ function Shell() {
         <Stack.Screen name="index" options={{ headerShown: false }} />
         <Stack.Screen name="welcome" options={{ headerShown: false, gestureEnabled: false }} />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="route" options={{ presentation: 'modal', title: 'О маршруте' }} />
         <Stack.Screen name="map" options={{ title: 'Карта' }} />
         <Stack.Screen name="stop/[id]" options={{ title: '' }} />
       </Stack>

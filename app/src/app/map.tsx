@@ -1,4 +1,4 @@
-import { useLocalSearchParams } from 'expo-router';
+import { router, useLocalSearchParams } from 'expo-router';
 import { Linking, Pressable, Text, View } from 'react-native';
 import RouteMap from '../components/RouteMap';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -14,6 +14,10 @@ export default function MapScreen() {
   const tour = useTour();
   const { stop: stopId } = useLocalSearchParams<{ stop?: string }>();
   const target = stopById(stopId ?? '') ?? route.stops[tour.target];
+  const here = () => {
+    tour.arrive(target.id);
+    router.back();
+  };
   const { pos, permission } = useLocation();
   const dist = pos ? distanceM(pos, target) : null;
   const openAppleMaps = () =>
@@ -30,7 +34,7 @@ export default function MapScreen() {
           <Pressable accessibilityRole="button" onPress={openAppleMaps} style={{ backgroundColor: c.accent, borderRadius: radius.pill, paddingVertical: 10, paddingHorizontal: 16 }}>
             <Text style={{ fontFamily: font.uiBold, color: c.onAccent }}>Маршрут в Картах</Text>
           </Pressable>
-          <Pressable accessibilityRole="button" onPress={() => tour.act(`here:${target.id}`)} style={{ backgroundColor: c.accentSoft, borderRadius: radius.pill, paddingVertical: 10, paddingHorizontal: 16 }}>
+          <Pressable accessibilityRole="button" onPress={here} style={{ backgroundColor: c.accentSoft, borderRadius: radius.pill, paddingVertical: 10, paddingHorizontal: 16 }}>
             <Text style={{ fontFamily: font.uiBold, color: c.accent }}>Я на месте</Text>
           </Pressable>
         </View>

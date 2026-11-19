@@ -31,7 +31,7 @@ export function LocationProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  const active = tour.started && !tour.finished && permission === 'granted';
+  const active = tour.onboarded && permission === 'granted';
   useEffect(() => {
     if (!active) return;
     let sub: Location.LocationSubscription | null = null;
@@ -41,7 +41,7 @@ export function LocationProvider({ children }: { children: ReactNode }) {
       setPos(p);
       const t = tourRef.current;
       const stop = route.stops[t.target];
-      if (!stop || !t.settings.autoOffer || t.arrived.includes(stop.id)) return;
+      if (!stop || !t.settings.autoOffer || t.arrived.includes(stop.id) || t.heard.includes(stop.id)) return;
       // Two readings in a row inside the zone, so one jumpy GPS fix does not trigger a story.
       const inside = distanceM(p, stop) <= stop.radius + Math.min(p.accuracy ?? 0, 30);
       insideCount.current[stop.id] = inside ? (insideCount.current[stop.id] ?? 0) + 1 : 0;
