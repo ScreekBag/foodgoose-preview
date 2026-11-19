@@ -1,0 +1,60 @@
+{
+  "expo": {
+    "name": "Кут",
+    "slug": "kut-audioguide",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "app.kut.audioguide",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Кут узнаёт, что вы подошли к достопримечательности, и сам предлагает рассказ.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "Чтобы гид предлагал рассказ у каждой остановки, даже когда телефон в кармане.",
+        "UIBackgroundModes": [
+          "audio",
+          "location"
+        ],
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "package": "app.kut.audioguide"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-audio",
+        {
+          "enableBackgroundPlayback": true,
+          "microphonePermission": false
+        }
+      ],
+      "expo-image",
+      "expo-font",
+      "expo-splash-screen",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Кут узнаёт, что вы подошли к достопримечательности, и сам предлагает рассказ."
+        }
+      ],
+      "expo-asset"
+    ],
+    "scheme": "kut",
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
