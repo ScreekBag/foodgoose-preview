@@ -1,0 +1,36 @@
+feature,area,priority,original,clone,notes
+One ongoing conversation with the guide as the home screen,thread,must,yes,no,Duet pattern
+Guide writes first when you are near a stop,thread,must,yes,no,Duet "comes to you" pattern; GPS geofence
+Rich cards inside the chat (route / stop / map / finish),thread,must,yes,no,
+Quick-reply chips (Play / Later / Tell me more / Next stop),thread,must,yes,no,Duet Approve/Not now pattern
+Ask the guide by text,thread,must,yes,no,needs internet + AI
+Ask the guide by voice,thread,should,yes,no,
+Today's walk brief (heat / prayer times / what is open),thread,should,yes,no,Duet morning brief pattern
+Push notification near a stop,notifications,must,yes,no,
+Welcome screen with narration language,onboarding,must,no,no,
+Location and notification permissions with reasons,onboarding,must,no,no,
+Route overview: map + stops + distance + time + tips,route,must,no,no,
+Full route content for 7 stops (script + facts checked),content,must,no,no,the main work
+Professional voice-over audio for each stop,content,must,no,no,
+Photo for every stop with a clear licence,content,should,no,no,
+Audio player: play pause -15s speed transcript,player,must,no,no,
+Audio keeps playing with the phone locked + lock screen controls,player,must,no,no,
+Map with your position and the line to the next stop,navigation,must,no,no,
+Open the way in Apple Maps,navigation,should,no,no,
+"I'm here" button when GPS is off,navigation,must,no,no,
+Works offline after download,offline,must,no,no,
+Progress saved (which stops heard),route,must,no,no,
+Finish card (km / time / where to eat),route,should,no,no,
+Saved tab with downloads and storage,library,could,no,no,
+Settings: language / speed / auto-play,settings,should,no,no,
+Extra "tell me more" stories per stop,content,should,no,no,
+Second route,content,could,no,no,user said 1 route first
+Generate a new tour on request,generation,could,no,no,long-term vision of the app
+Second narration language,content,could,no,no,
+Rate the walk,feedback,could,no,no,
+Tabs Guide / Routes / Saved,navigation,should,yes,no,Duet Chat/Tasks/Make pattern
+Connectors and business integrations,duet,could,yes,skip,not relevant to a tour app
+Agent cloud computer,duet,could,yes,skip,not relevant
+Payments approval cards,duet,could,yes,skip,not relevant
+Duet name / icon / colours / copy,brand,must,yes,skip,belongs to Anthropic; we make our own brand
+Interior tours of Seif Palace and National Assembly,content,could,no,skip,closed to the public
